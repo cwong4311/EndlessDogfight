@@ -54,7 +54,7 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0.86
     - _Wave_Scale: 0.13
-    - _Wave_Speed: 3
+    - _Wave_Speed: 1
     - _Wave_Strength: 1.41
     - _Wave_Tile: 4.46
     m_Colors:
