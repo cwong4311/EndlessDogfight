@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour
     public float YawStrength;
     public float InducedDragStrength;
 
-    public Vector3 TurnSpeed;
-    public Vector3 TurnAcceleration;
+    public float TurnSpeed;
 
     private Rigidbody _rb;
     private Vector3 _localVelocity;
@@ -38,7 +37,7 @@ public class PlayerController : MonoBehaviour
         AddSimulatedDrag();
         AddLift();
 
-        //Steer(Time.fixedDeltaTime);
+        HandlePlayerSteer();
     }
 
     private void UpdateCurrentState()
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
     private void AddSimulatedDrag()
     {
         var velocitySqr = _localVelocity.sqrMagnitude;
-        var coefficient = (2 * _localVelocity.normalized);
+        var coefficient =  _localVelocity.normalized;
 
         var drag = coefficient.magnitude * velocitySqr * (-1 * _localVelocity.normalized);
 
@@ -96,27 +95,16 @@ public class PlayerController : MonoBehaviour
         return lift + drag;
     }
 
-    private void Steer(float dt)
+    private void HandlePlayerSteer()
     {
-        Vector3 dummy = new Vector3(0, 0, 0);
+        var yaw = Input.GetAxis("Horizontal");
+        var pitch = Input.GetAxis("Vertical");
+        var roll = Input.GetAxis("Roll");
 
-        var targetAngularVelocity = Vector3.Scale(dummy, TurnSpeed);
-        // TO REDO
-        var av = _localAngularVelocity * Mathf.Rad2Deg;
+        Vector3 rollForce = -1 * transform.forward * roll * TurnSpeed;
+        Vector3 pitchForce = -1 * transform.right * pitch * TurnSpeed;
+        Vector3 yawForce = transform.up * yaw * TurnSpeed;
 
-        var correction = new Vector3(
-            CalculateSteering(dt, av.x, targetAngularVelocity.x, TurnAcceleration.x),
-            CalculateSteering(dt, av.y, targetAngularVelocity.y, TurnAcceleration.y),
-            CalculateSteering(dt, av.z, targetAngularVelocity.z, TurnAcceleration.z)
-        );
-
-        _rb.AddRelativeTorque(correction * Mathf.Rad2Deg, ForceMode.VelocityChange);
-    }
-
-    private float CalculateSteering(float dt, float angularVelocity, float targetVelocity, float acceleration)
-    {
-        var error = targetVelocity - angularVelocity;
-        var accel = acceleration * dt;
-        return Mathf.Clamp(error, -accel, accel);
+        _rb.AddTorque(rollForce + pitchForce + yawForce);
     }
 }
