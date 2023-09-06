@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float InducedDragStrength;
 
     public float TurnSpeed;
+    public float RollSpeed;
 
     private Rigidbody _rb;
     private Vector3 _localVelocity;
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
         var pitch = Input.GetAxis("Vertical");
         var roll = Input.GetAxis("Roll");
 
-        Vector3 rollForce = -1 * transform.forward * roll * TurnSpeed;
+        Vector3 rollForce = -1 * transform.forward * roll * RollSpeed;
         Vector3 pitchForce = -1 * transform.right * pitch * TurnSpeed;
         Vector3 yawForce = transform.up * yaw * TurnSpeed;
 
