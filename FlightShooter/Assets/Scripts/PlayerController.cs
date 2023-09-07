@@ -13,11 +13,15 @@ public class PlayerController : MonoBehaviour
     public float TurnSpeed;
     public float RollSpeed;
 
+    public float CollisionAvoidanceSpeed;
+    public LayerMask CollisionAvoidanceLayerMask;
+
     private Rigidbody _rb;
     private Vector3 _localVelocity;
     private Vector3 _localAngularVelocity;
     private float _angleOfAttack;
     private float _angleOfYaw;
+    private float _currentTurnSpeed;
 
     private void Awake()
     {
@@ -27,6 +31,8 @@ public class PlayerController : MonoBehaviour
         }
 
         _rb.drag = Mathf.Epsilon;
+        _currentTurnSpeed = TurnSpeed;
+        Debug.Log(_currentTurnSpeed);
     }
 
     // Update is called once per frame
@@ -103,9 +109,27 @@ public class PlayerController : MonoBehaviour
         var roll = Input.GetAxis("Roll");
 
         Vector3 rollForce = -1 * transform.forward * roll * RollSpeed;
-        Vector3 pitchForce = -1 * transform.right * pitch * TurnSpeed;
-        Vector3 yawForce = transform.up * yaw * TurnSpeed;
+        Vector3 pitchForce = -1 * transform.right * pitch * _currentTurnSpeed;
+        Vector3 yawForce = transform.up * yaw * _currentTurnSpeed;
 
-        _rb.AddTorque(rollForce + pitchForce + yawForce);
+        _rb.AddTorque(rollForce + pitchForce + yawForce, ForceMode.VelocityChange);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (((1 << collision.gameObject.layer) & CollisionAvoidanceLayerMask.value) != 0)
+        {
+            _currentTurnSpeed = CollisionAvoidanceSpeed;
+            Debug.Log(_currentTurnSpeed);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (((1 << collision.gameObject.layer) & CollisionAvoidanceLayerMask.value) != 0)
+        {
+            _currentTurnSpeed = TurnSpeed;
+            Debug.Log(_currentTurnSpeed);
+        }
     }
 }
