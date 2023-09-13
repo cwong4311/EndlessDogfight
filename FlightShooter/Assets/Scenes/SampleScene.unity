@@ -3546,6 +3546,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202592089}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &211629605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211629606}
+  m_Layer: 0
+  m_Name: BulletPoolMananger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &211629606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211629605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1677.1964, y: -97.42406, z: 573.53455}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &213330427
 GameObject:
   m_ObjectHideFlags: 0
@@ -25747,7 +25778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4427129057575456, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4427129057575456, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25788,41 +25819,6 @@ PrefabInstance:
     - target: {fileID: 4427129057575456, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383597273357149828, guid: b10447bb983d60343ab47d2f8ca01eef,
-        type: 3}
-      propertyPath: RollSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383597273357149828, guid: b10447bb983d60343ab47d2f8ca01eef,
-        type: 3}
-      propertyPath: TurnSpeed
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383597273357149828, guid: b10447bb983d60343ab47d2f8ca01eef,
-        type: 3}
-      propertyPath: YawStrength
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383597273357149828, guid: b10447bb983d60343ab47d2f8ca01eef,
-        type: 3}
-      propertyPath: LiftStrength
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383597273357149828, guid: b10447bb983d60343ab47d2f8ca01eef,
-        type: 3}
-      propertyPath: InducedDragStrength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383597273357149828, guid: b10447bb983d60343ab47d2f8ca01eef,
-        type: 3}
-      propertyPath: CollisionAvoidanceSpeed
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5383597273357149828, guid: b10447bb983d60343ab47d2f8ca01eef,
-        type: 3}
-      propertyPath: CollisionAvoidanceLayerMask.m_Bits
-      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8439125182831296013, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}

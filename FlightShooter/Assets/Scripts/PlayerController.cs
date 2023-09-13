@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public float CollisionAvoidanceSpeed;
     public LayerMask CollisionAvoidanceLayerMask;
 
+    public WeaponsMananger WeaponsMananger;
+
     private Rigidbody _rb;
     private Vector3 _localVelocity;
     private Vector3 _localAngularVelocity;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         AddLift();
 
         HandlePlayerSteer();
+        HandlePlayerShoot();
     }
 
     private void UpdateCurrentState()
@@ -113,6 +116,19 @@ public class PlayerController : MonoBehaviour
         Vector3 yawForce = transform.up * yaw * _currentTurnSpeed;
 
         _rb.AddTorque(rollForce + pitchForce + yawForce, ForceMode.VelocityChange);
+    }
+
+    private void HandlePlayerShoot()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            WeaponsMananger.ShootPrimary();
+        }
+
+        if (Input.GetButton("Fire2"))
+        {
+            WeaponsMananger.ShootSecondary();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

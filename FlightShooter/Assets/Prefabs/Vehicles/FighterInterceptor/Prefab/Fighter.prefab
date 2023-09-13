@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 3290972937276478106}
   - component: {fileID: 8439125182831296013}
   - component: {fileID: 5383597273357149828}
+  - component: {fileID: 2651648151924889001}
   m_Layer: 0
   m_Name: Fighter
   m_TagString: Untagged
@@ -838,9 +839,26 @@ MonoBehaviour:
   MaxThrust: 6000
   LiftStrength: 100
   YawStrength: 100
-  InducedDragStrength: 40
-  TurnSpeed: 4500
-  RollSpeed: 1000
+  InducedDragStrength: 1
+  TurnSpeed: 0.25
+  RollSpeed: 0.25
+  CollisionAvoidanceSpeed: 0.4
+  CollisionAvoidanceLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  WeaponsMananger: {fileID: 2651648151924889001}
+--- !u!114 &2651648151924889001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940402267846110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39e6f7278129244298164d762c204b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943405258541252
 GameObject:
   m_ObjectHideFlags: 0
