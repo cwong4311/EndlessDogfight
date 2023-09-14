@@ -13,8 +13,9 @@ public class Weapon : ScriptableObject
     public float Damage;
     public float RateOfFire;
     public float BulletsPerShot; // used for burst weapons
+    public GameObject BulletPF;
 
     public float ReloadTime;
 
-    public int[] PlaneSpawnLocationIDs;
+    public WeaponSlot[] WeaponSlotSpawns;
 }
