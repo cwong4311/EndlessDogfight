@@ -125,7 +125,7 @@ public class WeaponsMananger : MonoBehaviour
 
     public void ChangeWeapon()
     {
-
+        // TO DO
     }
 
     private Transform GetTransformOfWeaponSlot(WeaponSlot weaponSlotType)
