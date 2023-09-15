@@ -48,4 +48,12 @@ public class ObjectPoolManager : MonoBehaviour
             pool.availableObjects.Add(objToReturn);
         }
     }
+
+    public static bool IsPooledObject(GameObject objToReturn)
+    {
+        var objName = objToReturn.name.Replace("(Clone)", "").Trim();
+        var pool = _objectsPools.Find(e => e.objectName == objName);
+
+        return pool != null;
+    }
 }

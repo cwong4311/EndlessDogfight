@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030330800}
-  m_Layer: 0
-  m_Name: Target
+  m_Layer: 7
+  m_Name: CamTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4427129057575456}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073739249183434
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4496995689882656}
   - component: {fileID: 33883655255244790}
   - component: {fileID: 23782236283869958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ElevatorLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4962025047225126}
   - component: {fileID: 33375669657627924}
   - component: {fileID: 23043889105472216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rightRudder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4745763218709978}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftRudder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4666378687035492}
   - component: {fileID: 33924922239092754}
   - component: {fileID: 23108387702403754}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: leftRudder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 4181781591516288}
   - component: {fileID: 95673120308393774}
   - component: {fileID: 114119192011539012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FighterInterceptor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ Transform:
   - {fileID: 4561071471405796}
   - {fileID: 4745763218709978}
   m_Father: {fileID: 4427129057575456}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &95673120308393774
 Animator:
@@ -412,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4612887498559300}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftElevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4616544219842838}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightElevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 4661027361148632}
   - component: {fileID: 33586679799466564}
   - component: {fileID: 23339277951975618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFlap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4040824410442684}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFlap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4561071471405796}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightRudder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 4982144071144624}
   - component: {fileID: 33752935662702368}
   - component: {fileID: 23050124068836822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ElevatorRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4380051936380290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftFlap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 8439125182831296013}
   - component: {fileID: 5383597273357149828}
   - component: {fileID: 2651648151924889001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -763,8 +763,8 @@ Transform:
   m_LocalScale: {x: 0.40000004, y: 0.4, z: 0.40000004}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4181781591516288}
   - {fileID: 1030330800}
+  - {fileID: 4181781591516288}
   - {fileID: 5332984453810947416}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -819,7 +819,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 400
   m_Drag: 0
-  m_AngularDrag: 5
+  m_AngularDrag: 4.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -860,6 +860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39e6f7278129244298164d762c204b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyLayers:
+    serializedVersion: 2
+    m_Bits: 320
   _weaponSlots:
   - WeaponSlotType: 0
     WeaponSlotTransform: {fileID: 4112329348453358990}
@@ -886,7 +889,7 @@ GameObject:
   - component: {fileID: 4548350277577766}
   - component: {fileID: 33555765309205548}
   - component: {fileID: 23844716784568854}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftFlap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +972,7 @@ GameObject:
   - component: {fileID: 4567952156726368}
   - component: {fileID: 33230579974318870}
   - component: {fileID: 23053006449996944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fuselage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9078243072389652718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wing_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5332984453810947416}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponSlots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5601718289820069595}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Side_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6086344458428399356}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wing_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1180,7 +1183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2711225923177842869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Side_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1211,7 +1214,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8038690261181011132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1242,7 +1245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4112329348453358990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
