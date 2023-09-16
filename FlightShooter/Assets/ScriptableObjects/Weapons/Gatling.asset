@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e19e4c83d1a93048b097c9770a777d0, type: 3}
-  m_Name: MachineGun
+  m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
+  m_Name: Gatling
   m_EditorClassIdentifier: 
-  WeaponName: MachineGun
-  CurrentAmmo: 78
-  MagSize: 200
-  Damage: 2
-  RateOfFire: 20
+  WeaponName: Gatling
+  CurrentAmmo: 0
+  MagSize: 400
+  Damage: 5
+  RateOfFire: 100
   BulletsPerShot: 1
   BulletPF: {fileID: 6557800050782924257, guid: 1b63f5ff0fe81ab4f93f659fa942f5c1,
     type: 3}
-  ReloadTime: 4
+  ReloadTime: 7
   BulletSpeed: 10000
-  WeaponSlotSpawns: 0100000002000000
+  BulletTravelDistance: 25000
+  WeaponSlotSpawns: 00000000

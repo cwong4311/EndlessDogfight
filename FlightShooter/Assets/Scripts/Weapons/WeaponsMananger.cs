@@ -68,27 +68,31 @@ public class WeaponsMananger : MonoBehaviour
     {
         if (_currentWeapon.CurrentAmmo > 0 && !_isShootCooldown)
         {
+            var bulletInBurst = _currentWeapon.BulletsPerShot > 0 ? _currentWeapon.BulletsPerShot : 1;
             var simultBullet = _currentWeapon.WeaponSlotSpawns.Length;
-            _currentWeapon.CurrentAmmo -= simultBullet;
+            _currentWeapon.CurrentAmmo -= (simultBullet * bulletInBurst);
 
             for (int i = 0; i < simultBullet; i++)
             {
-                var bulletNozzle = GetTransformOfWeaponSlot(_currentWeapon.WeaponSlotSpawns[i]);
+                for (int n = 0; n < bulletInBurst; n++)
+                {
+                    var bulletNozzle = GetTransformOfWeaponSlot(_currentWeapon.WeaponSlotSpawns[i]);
 
-                var bullet = ObjectPoolManager.Spawn(
-                    _currentWeapon.BulletPF,
-                    bulletNozzle.position,
-                    transform.rotation
-                ).GetComponent<IProjectile>();
+                    var bullet = ObjectPoolManager.Spawn(
+                        _currentWeapon.BulletPF,
+                        bulletNozzle.position,
+                        transform.rotation
+                    ).GetComponent<IProjectile>();
 
-                bullet.Force = _currentWeapon.BulletSpeed;
-                bullet.Damage = _currentWeapon.Damage;
-                bullet.Direction = bulletNozzle.forward;
-                bullet.LifeTime = 3f;
-                bullet.TargetColliders = _enemyLayers;
-                bullet.SetLayer(LayerMask.NameToLayer("Player"));
+                    bullet.Force = _currentWeapon.BulletSpeed;
+                    bullet.Damage = _currentWeapon.Damage;
+                    bullet.Direction = bulletNozzle.forward;
+                    bullet.LifeTime = _currentWeapon.BulletTravelDistance / _currentWeapon.BulletSpeed;
+                    bullet.TargetColliders = _enemyLayers;
+                    bullet.SetLayer(LayerMask.NameToLayer("Player"));
 
-                bullet.Fire();
+                    bullet.Fire();
+                }
             }
 
             Overheat();

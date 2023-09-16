@@ -857,7 +857,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1940402267846110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e39e6f7278129244298164d762c204b6, type: 3}
+  m_Script: {fileID: 11500000, guid: e9838cc57e1aca5408a6c5e76ef0cc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyLayers:
@@ -877,7 +877,7 @@ MonoBehaviour:
   - WeaponSlotType: 5
     WeaponSlotTransform: {fileID: 8038690261181011132}
   _availableWeapons:
-  - {fileID: 11400000, guid: 43fd18aae9f4a1a4c8ee42759b08c85e, type: 2}
+  - {fileID: 11400000, guid: 8c53dc0d78f0bab489a60ceecdb2d920, type: 2}
 --- !u!1 &1943405258541252
 GameObject:
   m_ObjectHideFlags: 0

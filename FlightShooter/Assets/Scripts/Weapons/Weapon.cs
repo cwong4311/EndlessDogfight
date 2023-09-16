@@ -17,6 +17,7 @@ public class Weapon : ScriptableObject
 
     public float ReloadTime;
     public float BulletSpeed;
+    public float BulletTravelDistance;
 
     public WeaponSlot[] WeaponSlotSpawns;
 }

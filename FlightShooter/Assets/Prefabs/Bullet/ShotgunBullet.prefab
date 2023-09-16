@@ -208,9 +208,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7205864985168484804}
   - component: {fileID: 3160834744519850823}
-  - component: {fileID: 5732446781223049554}
+  - component: {fileID: 2362340064013058115}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: ShotgunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +248,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &5732446781223049554
+--- !u!114 &2362340064013058115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,6 +257,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6557800050782924257}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b8c222a923d8b418cce1dd3f5c0dcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3759bc05da7edb148861694da53d8097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxSpread: 0.1
