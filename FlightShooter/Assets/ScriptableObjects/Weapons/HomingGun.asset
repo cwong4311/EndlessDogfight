@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HomingGun
   m_EditorClassIdentifier: 
   WeaponName: HomingGun
-  CurrentAmmo: 5
+  CurrentAmmo: 0
   MagSize: 25
   Damage: 30
   RateOfFire: 0.5
@@ -21,6 +21,6 @@ MonoBehaviour:
   BulletPF: {fileID: 6557800050782924257, guid: 660cca2d528918443bd30eca2e75994a,
     type: 3}
   ReloadTime: 6
-  BulletSpeed: 10000
-  BulletTravelDistance: 1000000
+  BulletSpeed: 6000
+  BulletTravelDistance: 100000
   WeaponSlotSpawns: 0000000001000000020000000300000004000000

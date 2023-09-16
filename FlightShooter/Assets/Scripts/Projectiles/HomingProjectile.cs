@@ -37,8 +37,6 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
         _rb.WakeUp();
         _aliveSince = Time.time;
-
-        Time.timeScale = 0.2f;
     }
 
     public void Update()
@@ -53,7 +51,7 @@ public class HomingProjectile : MonoBehaviour, IProjectile
     {
         if (Time.time - _aliveSince > HomingPrimeDelay)
         {
-            _rb.AddForce(1000f * transform.forward, ForceMode.Acceleration);
+            _rb.velocity = 200f * transform.forward;
 
             if (_targetEnemy != null)
             {
@@ -66,9 +64,13 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
                 foreach (var potentialTarget in listOfColliders)
                 {
-                    if (((1 << potentialTarget.gameObject.layer) & TargetColliders.value) != 0)
+                    if (((1 << potentialTarget.gameObject.layer) & TargetColliders.value) != 0 
+                        && potentialTarget.gameObject.layer != LayerMask.NameToLayer("Environment"))
                     {
+                        Debug.Log("TARGET FOUND: " + potentialTarget.name + ", " + potentialTarget.transform.position);
                         _targetEnemy = potentialTarget.transform;
+
+                        RotateProjectile();
                         break;
                     }
                 }
@@ -119,7 +121,7 @@ public class HomingProjectile : MonoBehaviour, IProjectile
     private void RotateProjectile()
     {
         var direction = _targetEnemy.transform.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(-direction, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
 
         Debug.Log("Missile Rotating: " + _targetEnemy.transform.position + ", " + direction);
     }

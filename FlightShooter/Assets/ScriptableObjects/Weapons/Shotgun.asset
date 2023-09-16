@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   WeaponName: Shotgun
-  CurrentAmmo: 0
+  CurrentAmmo: 150
   MagSize: 180
   Damage: 10
   RateOfFire: 1
@@ -22,5 +22,5 @@ MonoBehaviour:
     type: 3}
   ReloadTime: 5
   BulletSpeed: 7500
-  BulletTravelDistance: 7500
+  BulletTravelDistance: 15000
   WeaponSlotSpawns: 00000000

@@ -5789,7 +5789,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 10000
-  field of view: 58.02
+  field of view: 65
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7855,7 +7855,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1030330800}
   m_Lens:
-    FieldOfView: 58.02
+    FieldOfView: 65
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 10000
@@ -21347,7 +21347,7 @@ GameObject:
   - component: {fileID: 1381372352}
   - component: {fileID: 1381372351}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: TestEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21365,8 +21365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166ac998c640fc14aaf2ae346786fbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 0
-  _currentHealth: 0
+  _maxHealth: 200
+  _currentHealth: 200
   deathEffectPF: {fileID: 0}
 --- !u!65 &1381372352
 BoxCollider:
@@ -25873,7 +25873,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _availableWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 177c4807b3034464bba0e6c097595396,
+      objectReference: {fileID: 11400000, guid: 8bd307e17e97a314b9571dd86770cdec,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
