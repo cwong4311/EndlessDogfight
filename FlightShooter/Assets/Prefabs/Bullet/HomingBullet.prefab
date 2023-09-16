@@ -261,5 +261,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HomingRange: 200
-  HomingPrimeDelay: 1
-  HomingTrackingSpeed: 10000
+  HomingPrimeDelay: 1.5
+  isSnapHoming: 1

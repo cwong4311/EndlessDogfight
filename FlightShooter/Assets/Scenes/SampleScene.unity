@@ -25875,6 +25875,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8bd307e17e97a314b9571dd86770cdec,
         type: 2}
+    - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: _availablePrimaryWeapons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: _availableSecondaryWeapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: _availablePrimaryWeapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c53dc0d78f0bab489a60ceecdb2d920,
+        type: 2}
+    - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: _availablePrimaryWeapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e641e0630a2b71d4fb0e1797a362572c,
+        type: 2}
+    - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: _availablePrimaryWeapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 177c4807b3034464bba0e6c097595396,
+        type: 2}
+    - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: _availablePrimaryWeapons.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bd307e17e97a314b9571dd86770cdec,
+        type: 2}
+    - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: _availableSecondaryWeapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c1496df365a2b234b96102504c32be2c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
 --- !u!1 &1650535025

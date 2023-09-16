@@ -25,9 +25,11 @@ public class WeaponsMananger : MonoBehaviour
     public LayerMask _enemyLayers;
 
     public WeaponSlotAssignment[] _weaponSlots;
-    public Weapon[] _availableWeapons;
+    public Weapon[] _availablePrimaryWeapons;
+    public Weapon[] _availableSecondaryWeapons;
 
     private Weapon _currentWeapon;
+    private Weapon _secondaryWeapon;
 
     private bool _isShootCooldown;
     private float _isShootStartTime;
@@ -35,13 +37,23 @@ public class WeaponsMananger : MonoBehaviour
     private bool _isReloading;
     private float _reloadStartTime;
 
+    private bool _isSecondaryCD;
+    private float _secondaryStartTime;
+
+    private bool _isSecondaryReload;
+    private float _secondaryReloadStart;
+
     public void OnEnable()
     {
-        _currentWeapon = _availableWeapons[0];
+        _currentWeapon = _availablePrimaryWeapons[0];
         _currentWeapon.CurrentAmmo = _currentWeapon.MagSize;
+
+        _secondaryWeapon = _availableSecondaryWeapons[0];
+        _secondaryWeapon.CurrentAmmo = _secondaryWeapon.MagSize;
 
         _isShootCooldown = false;
         _isReloading = false;
+        _isSecondaryCD = false;
     }
 
     public void Update()
@@ -62,32 +74,59 @@ public class WeaponsMananger : MonoBehaviour
                 _isReloading = false;
             }
         }
+
+        if (_isSecondaryCD)
+        {
+            if (Time.time - _secondaryStartTime >= (1 / _secondaryWeapon.RateOfFire))
+            {
+                _isSecondaryCD = false;
+            }
+        }
+
+        if (_isSecondaryReload)
+        {
+            if (Time.time - _secondaryReloadStart >= _secondaryWeapon.ReloadTime)
+            {
+                _secondaryWeapon.CurrentAmmo = _secondaryWeapon.MagSize;
+                _isSecondaryReload = false;
+            }
+        }
     }
 
     public void ShootPrimary()
     {
-        if (_currentWeapon.CurrentAmmo > 0 && !_isShootCooldown)
+        ShootWeapon(_currentWeapon, _isShootCooldown, OverheatPrimary, ReloadPrimary);
+    }
+
+    public void ShootSecondary()
+    {
+        ShootWeapon(_secondaryWeapon, _isSecondaryCD, OverheatSecondary, ReloadSecondary);
+    }
+
+    public void ShootWeapon(Weapon targetWeapon, bool weaponOnCooldown, Action OnOverheat, Action OnReload)
+    {
+        if (targetWeapon.CurrentAmmo > 0 && !weaponOnCooldown)
         {
-            var bulletInBurst = _currentWeapon.BulletsPerShot > 0 ? _currentWeapon.BulletsPerShot : 1;
-            var simultBullet = _currentWeapon.WeaponSlotSpawns.Length;
-            _currentWeapon.CurrentAmmo -= (simultBullet * bulletInBurst);
+            var bulletInBurst = targetWeapon.BulletsPerShot > 0 ? targetWeapon.BulletsPerShot : 1;
+            var simultBullet = targetWeapon.WeaponSlotSpawns.Length;
+            targetWeapon.CurrentAmmo -= (simultBullet * bulletInBurst);
 
             for (int i = 0; i < simultBullet; i++)
             {
                 for (int n = 0; n < bulletInBurst; n++)
                 {
-                    var bulletNozzle = GetTransformOfWeaponSlot(_currentWeapon.WeaponSlotSpawns[i]);
+                    var bulletNozzle = GetTransformOfWeaponSlot(targetWeapon.WeaponSlotSpawns[i]);
 
                     var bullet = ObjectPoolManager.Spawn(
-                        _currentWeapon.BulletPF,
+                        targetWeapon.BulletPF,
                         bulletNozzle.position,
                         transform.rotation
                     ).GetComponent<IProjectile>();
 
-                    bullet.Force = _currentWeapon.BulletSpeed;
-                    bullet.Damage = _currentWeapon.Damage;
+                    bullet.Force = targetWeapon.BulletSpeed;
+                    bullet.Damage = targetWeapon.Damage;
                     bullet.Direction = bulletNozzle.forward;
-                    bullet.LifeTime = _currentWeapon.BulletTravelDistance / _currentWeapon.BulletSpeed;
+                    bullet.LifeTime = targetWeapon.BulletTravelDistance / targetWeapon.BulletSpeed;
                     bullet.TargetColliders = _enemyLayers;
                     bullet.SetLayer(LayerMask.NameToLayer("Player"));
 
@@ -95,21 +134,16 @@ public class WeaponsMananger : MonoBehaviour
                 }
             }
 
-            Overheat();
+            OnOverheat();
         }
 
         if (_currentWeapon.CurrentAmmo <= 0)
         {
-            Reload();
+            OnReload();
         }
     }
 
-    public void ShootSecondary()
-    {
-        Debug.Log("Shoot Secondary");
-    }
-
-    private void Overheat()
+    private void OverheatPrimary()
     {
         if (_isShootCooldown == false)
         {
@@ -118,12 +152,30 @@ public class WeaponsMananger : MonoBehaviour
         }
     }
 
-    public void Reload()
+    public void ReloadPrimary()
     {
         if (_isReloading == false)
         {
             _isReloading = true;
             _reloadStartTime = Time.time;
+        }
+    }
+
+    private void OverheatSecondary()
+    {
+        if (_isSecondaryCD == false)
+        {
+            _isSecondaryCD = true;
+            _secondaryStartTime = Time.time;
+        }
+    }
+
+    public void ReloadSecondary()
+    {
+        if (_isSecondaryReload == false)
+        {
+            _isSecondaryReload = true;
+            _secondaryReloadStart = Time.time;
         }
     }
 

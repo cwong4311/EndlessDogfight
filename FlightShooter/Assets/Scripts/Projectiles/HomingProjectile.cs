@@ -17,7 +17,7 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
     public float HomingRange;
     public float HomingPrimeDelay;
-    public float HomingTrackingSpeed;
+    public bool isSnapHoming;
 
     private Rigidbody _rb;
     private TrailRenderer _tr;
@@ -51,7 +51,15 @@ public class HomingProjectile : MonoBehaviour, IProjectile
     {
         if (Time.time - _aliveSince > HomingPrimeDelay)
         {
-            _rb.velocity = 200f * transform.forward;
+            if (isSnapHoming)
+            {
+                _rb.velocity = 200f * transform.forward;
+            }
+            else
+            {
+                _rb.AddForce(200f * transform.forward, ForceMode.Acceleration);
+            }
+            
 
             if (_targetEnemy != null)
             {
@@ -67,7 +75,6 @@ public class HomingProjectile : MonoBehaviour, IProjectile
                     if (((1 << potentialTarget.gameObject.layer) & TargetColliders.value) != 0 
                         && potentialTarget.gameObject.layer != LayerMask.NameToLayer("Environment"))
                     {
-                        Debug.Log("TARGET FOUND: " + potentialTarget.name + ", " + potentialTarget.transform.position);
                         _targetEnemy = potentialTarget.transform;
 
                         RotateProjectile();
@@ -91,6 +98,7 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Misssile Collided");
         if (((1 << collision.gameObject.layer) & TargetColliders.value) != 0)
         {
             if (collision.gameObject.TryGetComponent<IHealth>(out var enemyHealth))
@@ -122,8 +130,6 @@ public class HomingProjectile : MonoBehaviour, IProjectile
     {
         var direction = _targetEnemy.transform.position - transform.position;
         transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-
-        Debug.Log("Missile Rotating: " + _targetEnemy.transform.position + ", " + direction);
     }
 
     private void Shuffle<T>(ref List<T> list)
