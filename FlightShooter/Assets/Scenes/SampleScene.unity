@@ -25889,7 +25889,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _availablePrimaryWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 8c53dc0d78f0bab489a60ceecdb2d920,
+      objectReference: {fileID: 11400000, guid: 177c4807b3034464bba0e6c097595396,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
@@ -25901,7 +25901,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _availablePrimaryWeapons.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 177c4807b3034464bba0e6c097595396,
+      objectReference: {fileID: 11400000, guid: 8c53dc0d78f0bab489a60ceecdb2d920,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}

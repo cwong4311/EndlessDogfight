@@ -260,6 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd204e522e7844f9e8a1645b28e9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HomingSpeed: 200
   HomingRange: 200
   HomingPrimeDelay: 1.5
   isSnapHoming: 1
+  HomingTracking: 0
+  OnCollisionEffect: {fileID: 0}

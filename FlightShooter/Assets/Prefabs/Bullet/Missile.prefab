@@ -62,9 +62,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd204e522e7844f9e8a1645b28e9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HomingSpeed: 100
   HomingRange: 300
-  HomingPrimeDelay: 0.8
+  HomingPrimeDelay: 0.5
   isSnapHoming: 0
+  HomingTracking: 2
+  OnCollisionEffect: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
+    type: 3}
 --- !u!1001 &3755403533138884031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,6 +171,10 @@ PrefabInstance:
     - target: {fileID: 13613378, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
       propertyPath: m_Radius
       value: 10.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 13613378, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19807428, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
       propertyPath: lengthInSec

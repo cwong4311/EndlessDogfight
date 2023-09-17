@@ -15,9 +15,14 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
     public LayerMask TargetColliders { get; set; }
 
+    public float HomingSpeed;
     public float HomingRange;
     public float HomingPrimeDelay;
+
     public bool isSnapHoming;
+    public float HomingTracking;
+
+    public GameObject OnCollisionEffect;
 
     private Rigidbody _rb;
     private TrailRenderer _tr;
@@ -51,15 +56,7 @@ public class HomingProjectile : MonoBehaviour, IProjectile
     {
         if (Time.time - _aliveSince > HomingPrimeDelay)
         {
-            if (isSnapHoming)
-            {
-                _rb.velocity = 200f * transform.forward;
-            }
-            else
-            {
-                _rb.AddForce(200f * transform.forward, ForceMode.Acceleration);
-            }
-            
+            _rb.velocity = HomingSpeed * transform.forward;
 
             if (_targetEnemy != null)
             {
@@ -123,13 +120,25 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
         if (_tr != null) _tr.Clear();
 
+        if (OnCollisionEffect != null)
+            Instantiate(OnCollisionEffect, transform.position, Quaternion.identity);
+
         ObjectPoolManager.ReturnToPool(gameObject);
     }
 
     private void RotateProjectile()
     {
-        var direction = _targetEnemy.transform.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        var direction = Quaternion.LookRotation(_targetEnemy.transform.position - transform.position, Vector3.up);
+
+        if (isSnapHoming)
+        {
+
+            transform.rotation = direction;
+        }
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, direction, Time.deltaTime * HomingTracking);
+        }
     }
 
     private void Shuffle<T>(ref List<T> list)

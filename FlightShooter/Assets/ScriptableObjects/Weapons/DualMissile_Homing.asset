@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: DualMissile_Homing
   m_EditorClassIdentifier: 
   WeaponName: DualMissile_Homing
-  CurrentAmmo: 16
+  CurrentAmmo: 20
   MagSize: 24
-  Damage: 20
+  Damage: 80
   RateOfFire: 0.2
   BulletsPerShot: 1
   BulletPF: {fileID: 5116540436245979276, guid: 8bfc47a362f54f847a1539e397fe29b9,
     type: 3}
   ReloadTime: 20
-  BulletSpeed: 20000
-  BulletTravelDistance: 100000
+  BulletSpeed: 30000
+  BulletTravelDistance: 150000
   WeaponSlotSpawns: 0300000004000000
