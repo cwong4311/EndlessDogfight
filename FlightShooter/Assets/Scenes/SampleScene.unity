@@ -25913,8 +25913,13 @@ PrefabInstance:
         type: 3}
       propertyPath: _availableSecondaryWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: c1496df365a2b234b96102504c32be2c,
+      objectReference: {fileID: 11400000, guid: 4438a19c663f29e4083242b2d4da2d92,
         type: 2}
+    - target: {fileID: 8038690261181011132, guid: b10447bb983d60343ab47d2f8ca01eef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
 --- !u!1 &1650535025

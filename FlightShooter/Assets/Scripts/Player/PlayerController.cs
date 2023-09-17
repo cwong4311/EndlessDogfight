@@ -136,7 +136,6 @@ public class PlayerController : MonoBehaviour
         if (((1 << collision.gameObject.layer) & CollisionAvoidanceLayerMask.value) != 0)
         {
             _currentTurnSpeed = CollisionAvoidanceSpeed;
-            Debug.Log(_currentTurnSpeed);
         }
     }
 

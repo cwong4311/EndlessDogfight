@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6297993317914325075}
   - component: {fileID: 6841275070335687966}
-  - component: {fileID: 2568670463429241174}
+  - component: {fileID: 718676100522432495}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: NukeMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2568670463429241174
+--- !u!114 &718676100522432495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,15 +59,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5116540436245979276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dfd204e522e7844f9e8a1645b28e9a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ce40262683362146bb39b8629a185ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HomingSpeed: 100
-  HomingRange: 300
-  HomingPrimeDelay: 0.5
-  isSnapHoming: 0
-  HomingTracking: 3
-  OnCollisionEffect: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
+  ProximityRadius: 15
+  ExplosionPF: {fileID: 4693679393813918749, guid: 244db5aa63e159a429050243cc79a584,
     type: 3}
 --- !u!1001 &3755403533138884031
 PrefabInstance:
@@ -164,6 +160,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 61.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2372752, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3008559d5e2f87f4896e374bd2b24d82, type: 2}
     - target: {fileID: 13613378, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
       propertyPath: m_Height
       value: 68.8

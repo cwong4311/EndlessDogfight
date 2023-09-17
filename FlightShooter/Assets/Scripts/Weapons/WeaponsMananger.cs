@@ -137,7 +137,7 @@ public class WeaponsMananger : MonoBehaviour
             OnOverheat();
         }
 
-        if (_currentWeapon.CurrentAmmo <= 0)
+        if (targetWeapon.CurrentAmmo <= 0)
         {
             OnReload();
         }
