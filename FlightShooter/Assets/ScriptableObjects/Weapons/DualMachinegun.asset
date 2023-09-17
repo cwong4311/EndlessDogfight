@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DualMachinegun
   m_EditorClassIdentifier: 
   WeaponName: DualMachinegun
-  CurrentAmmo: 0
+  CurrentAmmo: 120
   MagSize: 160
   Damage: 25
   RateOfFire: 3

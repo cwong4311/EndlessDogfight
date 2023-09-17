@@ -265,4 +265,4 @@ MonoBehaviour:
   HomingPrimeDelay: 1.5
   isSnapHoming: 1
   HomingTracking: 0
-  OnCollisionEffect: {fileID: 0}
+  CollisionPF: {fileID: 0}

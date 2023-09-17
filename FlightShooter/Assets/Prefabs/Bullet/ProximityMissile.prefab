@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6297993317914325075}
   - component: {fileID: 6841275070335687966}
-  - component: {fileID: 718676100522432495}
+  - component: {fileID: 2203169338065623595}
   m_Layer: 0
-  m_Name: NukeMissile
+  m_Name: ProximityMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &718676100522432495
+--- !u!114 &2203169338065623595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce40262683362146bb39b8629a185ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProximityRadius: 20
-  CollisionPF: {fileID: 4693679393813918749, guid: 244db5aa63e159a429050243cc79a584,
+  ProximityRadius: 10
+  CollisionPF: {fileID: 4693679393813918749, guid: 9eb77fa60769f70489dde64d9d402b2c,
     type: 3}
 --- !u!1001 &3755403533138884031
 PrefabInstance:
@@ -163,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 2372752, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3008559d5e2f87f4896e374bd2b24d82, type: 2}
+      objectReference: {fileID: 2100000, guid: 06bb2afc4f2ba3d488f9f68ab612ab52, type: 2}
     - target: {fileID: 13613378, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
       propertyPath: m_Height
       value: 68.8

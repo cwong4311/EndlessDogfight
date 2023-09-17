@@ -64,10 +64,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HomingSpeed: 100
   HomingRange: 300
-  HomingPrimeDelay: 0.5
+  HomingPrimeDelay: 0.1
   isSnapHoming: 0
   HomingTracking: 3
-  OnCollisionEffect: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
+  CollisionPF: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
     type: 3}
 --- !u!1001 &3755403533138884031
 PrefabInstance:
@@ -164,6 +164,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 61.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2372752, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85dd1bfe0aba2f648b26064e6966b777, type: 2}
     - target: {fileID: 13613378, guid: 1d37014fd411c524db3696bba6ff1d21, type: 3}
       propertyPath: m_Height
       value: 68.8

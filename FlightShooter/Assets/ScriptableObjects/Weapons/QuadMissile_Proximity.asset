@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
-  m_Name: HomingGun
+  m_Name: QuadMissile_Proximity
   m_EditorClassIdentifier: 
-  WeaponName: HomingGun
-  CurrentAmmo: 15
-  MagSize: 25
+  WeaponName: DualMissile_Homing
+  CurrentAmmo: 28
+  MagSize: 32
   Damage: 30
-  RateOfFire: 0.5
+  RateOfFire: 0.2
   BulletsPerShot: 1
-  BulletPF: {fileID: 6557800050782924257, guid: 660cca2d528918443bd30eca2e75994a,
+  BulletPF: {fileID: 5116540436245979276, guid: 54ee306c2c765f04f8301edbc693b2b2,
     type: 3}
-  ReloadTime: 6
-  BulletSpeed: 6000
-  BulletTravelDistance: 100000
-  WeaponSlotSpawns: 0100000002000000030000000400000005000000
+  ReloadTime: 15
+  BulletSpeed: 50000
+  BulletTravelDistance: 150000
+  WeaponSlotSpawns: 03000000040000000600000007000000

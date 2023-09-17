@@ -22,7 +22,7 @@ public class HomingProjectile : MonoBehaviour, IProjectile
     public bool isSnapHoming;
     public float HomingTracking;
 
-    public GameObject OnCollisionEffect;
+    public GameObject CollisionPF;
 
     private Rigidbody _rb;
     private TrailRenderer _tr;
@@ -110,6 +110,11 @@ public class HomingProjectile : MonoBehaviour, IProjectile
     public void SetLayer(int layer)
     {
         gameObject.layer = layer;
+        var children = GetComponentsInChildren<Transform>(includeInactive: true);
+        foreach (var child in children)
+        {
+            child.gameObject.layer = layer;
+        }
     }
 
     public void Destroy()
@@ -120,8 +125,14 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
         if (_tr != null) _tr.Clear();
 
-        if (OnCollisionEffect != null)
-            Instantiate(OnCollisionEffect, transform.position, Quaternion.identity);
+        if (CollisionPF != null)
+        {
+            Instantiate(CollisionPF, transform.position, Quaternion.identity);
+            if (CollisionPF.TryGetComponent<DamageOnTriggerEnter>(out var collisionDamager))
+            {
+                collisionDamager.TargetCollisionLayer = TargetColliders;
+            }
+        }
 
         ObjectPoolManager.ReturnToPool(gameObject);
     }

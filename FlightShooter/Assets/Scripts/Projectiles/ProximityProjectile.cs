@@ -15,7 +15,7 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
     public LayerMask TargetColliders { get; set; }
 
     public float ProximityRadius;
-    public GameObject ExplosionPF;
+    public GameObject CollisionPF;
 
     private Rigidbody _rb;
     private TrailRenderer _tr;
@@ -38,7 +38,6 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
     {
         if (Time.time - _aliveSince >= LifeTime)
         {
-            Debug.Log("TEST ------ Life Expired");
             Destroy();
         }
 
@@ -50,12 +49,10 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
                 if (((1 << isApplicableTarget.gameObject.layer) & TargetColliders.value) != 0
                 && isApplicableTarget.gameObject.layer != LayerMask.NameToLayer("Environment"))
                 {
-                    Debug.Log("TEST ------ Proximity detected");
                     Destroy();
                 }
             }
         }
-        
     }
 
     public void Fire()
@@ -71,8 +68,7 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (((1 << collision.gameObject.layer) & TargetColliders.value) != 0
-            && collision.gameObject.layer != LayerMask.NameToLayer("Environment"))
+        if (((1 << collision.gameObject.layer) & TargetColliders.value) != 0)
         {
             if (collision.gameObject.TryGetComponent<IHealth>(out var enemyHealth))
             {
@@ -86,6 +82,11 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
     public void SetLayer(int layer)
     {
         gameObject.layer = layer;
+        var children = GetComponentsInChildren<Transform>(includeInactive: true);
+        foreach (var child in children)
+        {
+            child.gameObject.layer = layer;
+        }
     }
 
     public void Destroy()
@@ -96,10 +97,13 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
 
         if (_tr != null) _tr.Clear();
 
-        Instantiate(ExplosionPF, transform.position, Quaternion.identity);
-        if (ExplosionPF.TryGetComponent<DamageOnTriggerEnter>(out var explosionDamage))
+        if (CollisionPF != null)
         {
-            explosionDamage.TargetCollisionLayer = TargetColliders;
+            Instantiate(CollisionPF, transform.position, Quaternion.identity);
+            if (CollisionPF.TryGetComponent<DamageOnTriggerEnter>(out var collisionDamager))
+            {
+                collisionDamager.TargetCollisionLayer = TargetColliders;
+            }
         }
 
         ObjectPoolManager.ReturnToPool(gameObject);

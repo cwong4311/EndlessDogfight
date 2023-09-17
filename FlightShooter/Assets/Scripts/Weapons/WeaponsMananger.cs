@@ -10,7 +10,9 @@ public enum WeaponSlot
     Side_R,
     Wing_L,
     Wing_R,
-    Back
+    Back,
+    FarWing_L,
+    FarWing_R,
 }
 
 [Serializable]
@@ -120,7 +122,7 @@ public class WeaponsMananger : MonoBehaviour
                     var bullet = ObjectPoolManager.Spawn(
                         targetWeapon.BulletPF,
                         bulletNozzle.position,
-                        transform.rotation
+                        bulletNozzle.rotation
                     ).GetComponent<IProjectile>();
 
                     bullet.Force = targetWeapon.BulletSpeed;
