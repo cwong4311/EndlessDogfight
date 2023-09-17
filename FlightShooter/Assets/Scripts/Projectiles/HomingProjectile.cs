@@ -95,7 +95,6 @@ public class HomingProjectile : MonoBehaviour, IProjectile
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Misssile Collided");
         if (((1 << collision.gameObject.layer) & TargetColliders.value) != 0)
         {
             if (collision.gameObject.TryGetComponent<IHealth>(out var enemyHealth))

@@ -44,6 +44,7 @@ public class ObjectPoolManager : MonoBehaviour
         var pool = _objectsPools.Find(e => e.objectName == objName);
         if (pool != null)
         {
+            objToReturn.transform.parent = null;
             objToReturn.SetActive(false);
             pool.availableObjects.Add(objToReturn);
         }

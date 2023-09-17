@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IHealth
+public class PlayerHealth : MonoBehaviour, IHealth
 {
     [SerializeField]
     private float _maxHealth;
@@ -34,13 +34,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
-        if (deathEffectPF)
-            ObjectPoolManager.Spawn(deathEffectPF, transform.position, transform.rotation);
-       
-        if (ObjectPoolManager.IsPooledObject(gameObject))
-            ObjectPoolManager.ReturnToPool(gameObject);
-        else
-            Destroy(gameObject);
+        // TO DO
     }
 
     public void Heal(float amount)

@@ -13,4 +13,6 @@ public interface IHealth
     public void Heal(float amount);
 
     public void Die();
+
+    public void ToggleInvuln(bool active);
 }
