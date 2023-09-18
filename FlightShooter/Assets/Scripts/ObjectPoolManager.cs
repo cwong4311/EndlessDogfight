@@ -38,7 +38,7 @@ public class ObjectPoolManager : MonoBehaviour
         return spawned;
     }
 
-    public static void ReturnToPool(GameObject objToReturn)
+    public static bool ReturnToPool(GameObject objToReturn)
     {
         var objName = objToReturn.name.Replace("(Clone)", "").Trim();
         var pool = _objectsPools.Find(e => e.objectName == objName);
@@ -47,7 +47,11 @@ public class ObjectPoolManager : MonoBehaviour
             objToReturn.transform.parent = null;
             objToReturn.SetActive(false);
             pool.availableObjects.Add(objToReturn);
+
+            return true;
         }
+
+        return false;
     }
 
     public static bool IsPooledObject(GameObject objToReturn)

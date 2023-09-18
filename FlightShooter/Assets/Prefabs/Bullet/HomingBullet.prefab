@@ -120,7 +120,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3262566f5f5fd254aa9e886543529fea, type: 2}
+  - {fileID: 2100000, guid: 3008559d5e2f87f4896e374bd2b24d82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -141,7 +141,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 2
+  m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -149,7 +149,7 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.4472847
+        time: 0
         value: 0.16912031
         inSlope: 0
         outSlope: 0
@@ -265,4 +265,5 @@ MonoBehaviour:
   HomingPrimeDelay: 1.5
   isSnapHoming: 1
   HomingTracking: 0
-  CollisionPF: {fileID: 0}
+  CollisionPF: {fileID: 4693679393813918749, guid: 93b3c572fd380684fbb623cf35c6c4cf,
+    type: 3}
