@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
-  m_Name: QuadMissile_Proximity
+  m_Name: Shotgun 5
   m_EditorClassIdentifier: 
-  WeaponName: QuadMissile_Proximity
-  CurrentAmmo: 24
-  MagSize: 32
-  Damage: 30
-  RateOfFire: 0.2
-  BulletsPerShot: 1
-  BulletPF: {fileID: 5116540436245979276, guid: 54ee306c2c765f04f8301edbc693b2b2,
+  WeaponName: Shotgun
+  CurrentAmmo: 0
+  MagSize: 450
+  Damage: 20
+  RateOfFire: 4
+  BulletsPerShot: 30
+  BulletPF: {fileID: 6557800050782924257, guid: d6ff77fc185fd5c4895575bae2ae80a2,
     type: 3}
-  ReloadTime: 15
-  BulletSpeed: 50000
-  BulletTravelDistance: 150000
-  WeaponSlotSpawns: 03000000040000000600000007000000
+  ReloadTime: 3
+  BulletSpeed: 7500
+  BulletTravelDistance: 25000
+  WeaponSlotSpawns: 00000000

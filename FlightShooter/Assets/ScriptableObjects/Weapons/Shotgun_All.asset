@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79d1bcfc9eaa6049af6c75b56bb39d3, type: 3}
+  m_Name: Shotgun_All
+  m_EditorClassIdentifier: 
+  AllWeaponLevels:
+  - {fileID: 11400000, guid: 8bd307e17e97a314b9571dd86770cdec, type: 2}
+  - {fileID: 11400000, guid: 69166e6b881042e42a9c68eb691b7853, type: 2}
+  - {fileID: 11400000, guid: 3dcd8508bdddf0d41b7f213a24a2ee3f, type: 2}
+  - {fileID: 11400000, guid: 50679605360a80b4baaa993c8bed5576, type: 2}
+  - {fileID: 11400000, guid: 080576fcaae732f42839c8db30d7da66, type: 2}

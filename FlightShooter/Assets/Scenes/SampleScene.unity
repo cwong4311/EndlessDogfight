@@ -25889,31 +25889,31 @@ PrefabInstance:
         type: 3}
       propertyPath: _availablePrimaryWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 8c53dc0d78f0bab489a60ceecdb2d920,
+      objectReference: {fileID: 11400000, guid: 88a5b5d4cc42b0e46b951dff44c73143,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
       propertyPath: _availablePrimaryWeapons.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: e641e0630a2b71d4fb0e1797a362572c,
+      objectReference: {fileID: 11400000, guid: 648c5b8f291c56441b95685e21f9b88c,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
       propertyPath: _availablePrimaryWeapons.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 8bd307e17e97a314b9571dd86770cdec,
+      objectReference: {fileID: 11400000, guid: 447893fac57a3524b8e661807bc4a81b,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
       propertyPath: _availablePrimaryWeapons.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 177c4807b3034464bba0e6c097595396,
+      objectReference: {fileID: 11400000, guid: f395602d539b5004eaad9f35d0d826a4,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
       propertyPath: _availableSecondaryWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 4438a19c663f29e4083242b2d4da2d92,
+      objectReference: {fileID: 11400000, guid: c1496df365a2b234b96102504c32be2c,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
@@ -25931,7 +25931,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _availableSecondaryWeapons.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: c1496df365a2b234b96102504c32be2c,
+      objectReference: {fileID: 11400000, guid: 4438a19c663f29e4083242b2d4da2d92,
         type: 2}
     - target: {fileID: 8038690261181011132, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}

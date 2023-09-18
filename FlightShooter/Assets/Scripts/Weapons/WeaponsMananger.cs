@@ -27,10 +27,10 @@ public class WeaponsMananger : MonoBehaviour
     public LayerMask _enemyLayers;
 
     public WeaponSlotAssignment[] _weaponSlots;
-    public Weapon[] _availablePrimaryWeapons;
+    public UpgradableWeapon[] _availablePrimaryWeapons;
     public Weapon[] _availableSecondaryWeapons;
 
-    private Weapon _currentWeapon;
+    private UpgradableWeapon _currentWeapon;
     private Weapon _secondaryWeapon;
 
     private bool _isShootCooldown;
@@ -47,6 +47,11 @@ public class WeaponsMananger : MonoBehaviour
 
     public void OnEnable()
     {
+        foreach (var _primaryWeapon in _availablePrimaryWeapons)
+        {
+            _primaryWeapon.Ready();
+        }
+
         _currentWeapon = _availablePrimaryWeapons[0];
         _currentWeapon.CurrentAmmo = _currentWeapon.MagSize;
 
@@ -93,11 +98,24 @@ public class WeaponsMananger : MonoBehaviour
                 _isSecondaryReload = false;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ChangeWeapon(_currentWeapon.WeaponName);
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            testType = (testType + 1) % 4;
+            ChangeWeapon(_availablePrimaryWeapons[testType].WeaponName);
+            ChangeSecondary(_availableSecondaryWeapons[testType].WeaponName);
+        }
     }
+    int testType = 0;
 
     public void ShootPrimary()
     {
-        ShootWeapon(_currentWeapon, _isShootCooldown, OverheatPrimary, ReloadPrimary);
+        ShootWeapon(_currentWeapon.GetWeapon(), _isShootCooldown, OverheatPrimary, ReloadPrimary);
     }
 
     public void ShootSecondary()
@@ -181,9 +199,29 @@ public class WeaponsMananger : MonoBehaviour
         }
     }
 
-    public void ChangeWeapon()
+    public void ChangeWeapon(string weaponName)
     {
-        // TO DO
+        if (weaponName.Equals(_currentWeapon.WeaponName))
+        {
+            _currentWeapon.LevelUp();
+        }
+        else
+        {
+            _currentWeapon.ResetLevel();
+            _currentWeapon = LoadWeapon(weaponName);
+
+            ReloadPrimary();
+        }
+    }
+
+    public void ChangeSecondary(string secondaryName)
+    {
+        if (secondaryName.Equals(_secondaryWeapon.WeaponName) == false)
+        {
+            _secondaryWeapon = LoadSecondary(secondaryName);
+
+            ReloadSecondary();
+        }
     }
 
     private Transform GetTransformOfWeaponSlot(WeaponSlot weaponSlotType)
@@ -197,5 +235,31 @@ public class WeaponsMananger : MonoBehaviour
         }
 
         return transform;
+    }
+
+    private UpgradableWeapon LoadWeapon(string weaponName)
+    {
+        foreach (var upgradableWeapon in _availablePrimaryWeapons)
+        {
+            if (upgradableWeapon.WeaponName.Equals(weaponName))
+            {
+                return upgradableWeapon;
+            }
+        }
+
+        return _availablePrimaryWeapons[0];
+    }
+
+    private Weapon LoadSecondary(string weaponName)
+    {
+        foreach (var weapon in _availableSecondaryWeapons)
+        {
+            if (weapon.WeaponName.Equals(weaponName))
+            {
+                return weapon;
+            }
+        }
+
+        return _availableSecondaryWeapons[0];
     }
 }

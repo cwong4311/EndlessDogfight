@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
-  m_Name: DualMachinegun
+  m_Name: DualMachinegun_3
   m_EditorClassIdentifier: 
   WeaponName: DualMachinegun
   CurrentAmmo: 120
-  MagSize: 160
-  Damage: 25
-  RateOfFire: 3
+  MagSize: 300
+  Damage: 35
+  RateOfFire: 5
   BulletsPerShot: 1
   BulletPF: {fileID: 6557800050782924257, guid: 1b63f5ff0fe81ab4f93f659fa942f5c1,
     type: 3}
   ReloadTime: 3
   BulletSpeed: 7500
   BulletTravelDistance: 25000
-  WeaponSlotSpawns: 0100000002000000
+  WeaponSlotSpawns: 000000000100000002000000

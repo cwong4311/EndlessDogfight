@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
-  m_Name: HomingGun
+  m_Name: HomingBullets 2
   m_EditorClassIdentifier: 
   WeaponName: HomingGun
-  CurrentAmmo: 15
-  MagSize: 25
-  Damage: 30
-  RateOfFire: 0.5
+  CurrentAmmo: 0
+  MagSize: 15
+  Damage: 40
+  RateOfFire: 0.75
   BulletsPerShot: 1
   BulletPF: {fileID: 6557800050782924257, guid: 660cca2d528918443bd30eca2e75994a,
     type: 3}
-  ReloadTime: 6
+  ReloadTime: 7
   BulletSpeed: 6000
   BulletTravelDistance: 100000
-  WeaponSlotSpawns: 0100000002000000030000000400000005000000
+  WeaponSlotSpawns: 000000000300000004000000
