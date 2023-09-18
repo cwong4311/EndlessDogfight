@@ -21365,8 +21365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166ac998c640fc14aaf2ae346786fbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 200
-  _currentHealth: 200
+  _maxHealth: 1000
+  _currentHealth: 1000
   deathEffectPF: {fileID: 0}
 --- !u!65 &1381372352
 BoxCollider:
@@ -21444,7 +21444,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385569619
 GameObject:
@@ -25827,7 +25827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4427129057575456, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4427129057575456, guid: b10447bb983d60343ab47d2f8ca01eef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25913,7 +25913,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _availableSecondaryWeapons.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: c1496df365a2b234b96102504c32be2c,
+      objectReference: {fileID: 11400000, guid: 4438a19c663f29e4083242b2d4da2d92,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
@@ -25925,13 +25925,13 @@ PrefabInstance:
         type: 3}
       propertyPath: _availableSecondaryWeapons.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 4438a19c663f29e4083242b2d4da2d92,
+      objectReference: {fileID: 11400000, guid: a4ac32fdd88e2a14e919a9a63136afab,
         type: 2}
     - target: {fileID: 2651648151924889001, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}
       propertyPath: _availableSecondaryWeapons.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 779c6e094a94d8547a06fcd34c324144,
+      objectReference: {fileID: 11400000, guid: c1496df365a2b234b96102504c32be2c,
         type: 2}
     - target: {fileID: 8038690261181011132, guid: b10447bb983d60343ab47d2f8ca01eef,
         type: 3}

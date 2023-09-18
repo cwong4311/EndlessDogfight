@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: Shield
   CurrentAmmo: 0
-  MagSize: 3
-  Damage: 10
-  RateOfFire: 0.1
+  MagSize: 1
+  Damage: 0
+  RateOfFire: 10
   BulletsPerShot: 1
-  BulletPF: {fileID: 5116540436245979276, guid: 1f409efb6846fa54584097c0c8cc8f02,
+  BulletPF: {fileID: 6557800050782924257, guid: b4cfbf6076c91934eaa39ab87041db64,
     type: 3}
   ReloadTime: 30
-  BulletSpeed: 100000
-  BulletTravelDistance: 300000
-  WeaponSlotSpawns: 05000000
+  BulletSpeed: 1
+  BulletTravelDistance: 10
+  WeaponSlotSpawns: 00000000

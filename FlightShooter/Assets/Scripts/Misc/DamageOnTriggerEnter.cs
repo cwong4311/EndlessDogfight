@@ -67,7 +67,7 @@ public class DamageOnTriggerEnter : MonoBehaviour
     {
         if (((1 << target.gameObject.layer) & TargetCollisionLayer.value) == 0) return;
 
-        var targetID = target.GetInstanceID();
+        var targetID = target.gameObject.GetInstanceID();
         if (_alreadyTriggered.Contains(targetID) == false)
         {
             _alreadyTriggered.Add(targetID);
