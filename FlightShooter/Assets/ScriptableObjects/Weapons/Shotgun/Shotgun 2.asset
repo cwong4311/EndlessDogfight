@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
+  m_Name: Shotgun 2
+  m_EditorClassIdentifier: 
+  WeaponName: Shotgun
+  CurrentAmmo: 0
+  MagSize: 210
+  Damage: 15
+  RateOfFire: 1
+  BulletsPerShot: 30
+  BulletPF: {fileID: 6557800050782924257, guid: d6ff77fc185fd5c4895575bae2ae80a2,
+    type: 3}
+  ReloadTime: 4
+  BulletSpeed: 7500
+  BulletTravelDistance: 17500
+  WeaponSlotSpawns: 00000000

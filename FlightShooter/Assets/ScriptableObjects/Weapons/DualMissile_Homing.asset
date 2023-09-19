@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
+  m_Name: DualMissile_Homing
+  m_EditorClassIdentifier: 
+  WeaponName: DualMissile_Homing
+  CurrentAmmo: 20
+  MagSize: 24
+  Damage: 80
+  RateOfFire: 0.2
+  BulletsPerShot: 1
+  BulletPF: {fileID: 5116540436245979276, guid: 8bfc47a362f54f847a1539e397fe29b9,
+    type: 3}
+  ReloadTime: 20
+  BulletSpeed: 30000
+  BulletTravelDistance: 150000
+  WeaponSlotSpawns: 0300000004000000

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79d1bcfc9eaa6049af6c75b56bb39d3, type: 3}
+  m_Name: Gatling_All
+  m_EditorClassIdentifier: 
+  AllWeaponLevels:
+  - {fileID: 11400000, guid: e641e0630a2b71d4fb0e1797a362572c, type: 2}
+  - {fileID: 11400000, guid: 226e951d420b6b741b72cd6f699d58dc, type: 2}
+  - {fileID: 11400000, guid: e9dd765fdab16e548bd4293aaa9f8118, type: 2}
+  - {fileID: 11400000, guid: 67402a20589a3724e9b2f597528873fc, type: 2}
+  - {fileID: 11400000, guid: 668ef2979991694468f699d1265d1db1, type: 2}

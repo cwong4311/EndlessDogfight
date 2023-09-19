@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2cdd5a778da1a49975c4fae88defa7, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  WeaponName: Shield
+  CurrentAmmo: 0
+  MagSize: 1
+  Damage: 0
+  RateOfFire: 10
+  BulletsPerShot: 1
+  BulletPF: {fileID: 6557800050782924257, guid: b4cfbf6076c91934eaa39ab87041db64,
+    type: 3}
+  ReloadTime: 30
+  BulletSpeed: 1
+  BulletTravelDistance: 10
+  WeaponSlotSpawns: 00000000
