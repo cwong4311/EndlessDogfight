@@ -40,7 +40,10 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
         {
             Destroy();
         }
+    }
 
+    public void FixedUpdate()
+    {
         var proximityTargets = Physics.OverlapSphere(transform.position, ProximityRadius);
         if (proximityTargets != null && proximityTargets.Length > 0)
         {
