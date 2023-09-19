@@ -844,7 +844,7 @@ MonoBehaviour:
   InducedDragStrength: 1
   TurnSpeed: 0.25
   RollSpeed: 0.25
-  CollisionAvoidanceSpeed: 0.4
+  CollisionAvoidanceSpeed: 1
   CollisionAvoidanceLayerMask:
     serializedVersion: 2
     m_Bits: 64

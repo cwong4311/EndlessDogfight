@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HomingSpeed: 100
   HomingRange: 300
-  HomingPrimeDelay: 0.1
+  HomingPrimeDelay: 0.5
   isSnapHoming: 0
   HomingTracking: 3
   CollisionPF: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
