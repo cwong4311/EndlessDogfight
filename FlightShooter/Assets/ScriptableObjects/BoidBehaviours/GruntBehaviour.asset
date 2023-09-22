@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbf92eb373fc2a43ad29c89e317e8e9, type: 3}
   m_Name: GruntBehaviour
   m_EditorClassIdentifier: 
-  weightedBehaviours: []
+  weightedBehaviours:
+  - behaviour: {fileID: 11400000, guid: 186594d96ded6774bbe2c89af0dc6095, type: 2}
+    weight: 1
+  - behaviour: {fileID: 11400000, guid: d0a5b20cfb15b3044aae4fadbc731028, type: 2}
+    weight: 0.5
+  - behaviour: {fileID: 11400000, guid: 11252884386be7645a815fa6f429ec76, type: 2}
+    weight: 2
+  - behaviour: {fileID: 11400000, guid: 37c13bccf9c8b3f4d894d806fc87e35c, type: 2}
+    weight: 0.3
