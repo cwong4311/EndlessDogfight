@@ -823,7 +823,7 @@ Rigidbody:
   m_AngularDrag: 4.5
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &5383597273357149828
@@ -838,13 +838,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a999bb3600772e44b9ee50dd383700b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxThrust: 6000
+  MaxThrust: 5000
   LiftStrength: 100
   YawStrength: 100
   InducedDragStrength: 1
   TurnSpeed: 0.25
   RollSpeed: 0.25
-  CollisionAvoidanceSpeed: 1
+  CollisionAvoidanceSpeed: 0.7
   CollisionAvoidanceLayerMask:
     serializedVersion: 2
     m_Bits: 64

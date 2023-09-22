@@ -28555,7 +28555,7 @@ MonoBehaviour:
   CameraDistance: 0
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   IgnoreTag: 
   CameraRadius: 0.2
   DampingIntoCollision: 0
