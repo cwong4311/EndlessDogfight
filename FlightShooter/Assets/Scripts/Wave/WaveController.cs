@@ -9,6 +9,12 @@ public class WaveController : MonoBehaviour
     public WaveStats[] WaveStats;
     public GameObject healPF;
 
+    [Range(1, 100)]
+    public int PowerupDropChance = 5;
+
+    [Range(1, 100)]
+    public int HealDropChance = 10;
+
     private float _waveTimer;
     private int _waveLevel;
     private WaveStats _currentWave;
@@ -107,14 +113,14 @@ public class WaveController : MonoBehaviour
     {
         _enemiesActive--;
 
-        if (UnityEngine.Random.Range(0, 100) < 5)
+        if (UnityEngine.Random.Range(0, 100) < PowerupDropChance)
         {
             var listOfPowerups = _currentWave.droppablePowerups;
             var powerIdx = UnityEngine.Random.Range(0, listOfPowerups.Length);
 
             ObjectPoolManager.Spawn(listOfPowerups[powerIdx].gameObject, deathLocation, Quaternion.identity);
         }
-        else if (UnityEngine.Random.Range(0, 100) < 10)
+        else if (UnityEngine.Random.Range(0, 100) < HealDropChance)
         {
             ObjectPoolManager.Spawn(healPF, deathLocation, Quaternion.identity);
         }

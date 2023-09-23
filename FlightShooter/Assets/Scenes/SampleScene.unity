@@ -33410,7 +33410,7 @@ PrefabInstance:
     - target: {fileID: 3604203367283930004, guid: 589269310c9319b4ba0719660a228fa3,
         type: 3}
       propertyPath: m_Name
-      value: BoidsMaster
+      value: WaveMaster
       objectReference: {fileID: 0}
     - target: {fileID: 3604203367283930005, guid: 589269310c9319b4ba0719660a228fa3,
         type: 3}

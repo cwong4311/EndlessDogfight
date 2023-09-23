@@ -37,4 +37,4 @@ MonoBehaviour:
   - {fileID: 8804232417819741601, guid: 5133a579820bfcf449acfb303ab12b5f, type: 3}
   - {fileID: 8804232417819741601, guid: 5002340e90f6a9c4895a56e81eac8b8e, type: 3}
   totalWavePoints: 50
-  WaveDuration: 140
+  WaveDuration: 240
