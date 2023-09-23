@@ -58,7 +58,7 @@ public class HomingProjectile : MonoBehaviour, IProjectile
         {
             _rb.velocity = HomingSpeed * transform.forward;
 
-            if (_targetEnemy != null)
+            if (_targetEnemy != null && _targetEnemy.gameObject.activeSelf)
             {
                 RotateProjectile();
             }

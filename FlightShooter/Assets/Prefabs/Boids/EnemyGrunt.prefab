@@ -694,11 +694,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 3290972937276478106}
+  BoidsGroup: 0
   Behaviour: {fileID: 11400000, guid: 352fbf531bee9184381109ebb0eebb03, type: 2}
   NeighbourRadius: 60
   AvoidRadiusMultiplier: 0.5
-  MovementSpeed: 50
-  TurnPrecision: 40
+  MovementSpeed: 40
+  TurnPrecision: 30
   TurnDampingFactor: 0
 --- !u!114 &-4323283357192828864
 MonoBehaviour:

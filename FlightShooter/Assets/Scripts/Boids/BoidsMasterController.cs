@@ -56,7 +56,7 @@ public class BoidsMasterController : MonoBehaviour
             Collider[] contacts = Physics.OverlapSphere(enemy.transform.position, enemy.NeighbourRadius);
             foreach (var c in contacts)
             {
-                if (c != enemy.Collider)
+                if (c != enemy.Collider && c.gameObject.layer != LayerMask.NameToLayer("Player"))
                 {
                     nearbyColliders.Add(c.transform);
                 }
