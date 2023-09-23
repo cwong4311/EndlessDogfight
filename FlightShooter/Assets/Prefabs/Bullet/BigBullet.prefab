@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4634949357230904172}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.22, z: 0.15}
+  m_LocalScale: {x: 0.46819502, y: 0.4534737, z: 0.46819502}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7205864985168484804}
@@ -141,7 +141,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.03
+  m_Time: 0.06
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 3160834744519850823}
   - component: {fileID: 5732446781223049554}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BigBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

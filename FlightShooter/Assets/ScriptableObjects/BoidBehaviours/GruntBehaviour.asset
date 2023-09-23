@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbf92eb373fc2a43ad29c89e317e8e9, type: 3}
+  m_Name: GruntBehaviour
+  m_EditorClassIdentifier: 
+  weightedBehaviours:
+  - Behaviour: {fileID: 11400000, guid: 186594d96ded6774bbe2c89af0dc6095, type: 2}
+    GroupFilter: {fileID: 11400000, guid: 808587469d37f4c4cb39f952b01e6022, type: 2}
+    Weight: 10
+  - Behaviour: {fileID: 11400000, guid: d0a5b20cfb15b3044aae4fadbc731028, type: 2}
+    GroupFilter: {fileID: 11400000, guid: 808587469d37f4c4cb39f952b01e6022, type: 2}
+    Weight: 1
+  - Behaviour: {fileID: 11400000, guid: 11252884386be7645a815fa6f429ec76, type: 2}
+    GroupFilter: {fileID: 11400000, guid: 6ccd61dc623c5a5479d97507e7c0a055, type: 2}
+    Weight: 2
+  - Behaviour: {fileID: 11400000, guid: 11252884386be7645a815fa6f429ec76, type: 2}
+    GroupFilter: {fileID: 11400000, guid: ccae50ea33dda3f4ab21dafceda0005b, type: 2}
+    Weight: 5
+  - Behaviour: {fileID: 11400000, guid: 757004bdd3a5dea4a801b740e1558c55, type: 2}
+    GroupFilter: {fileID: 11400000, guid: 96517824f2fb4204089f74a8831d8690, type: 2}
+    Weight: 30
+  - Behaviour: {fileID: 11400000, guid: 1392b8d80c496964ab40230c0eb4542c, type: 2}
+    GroupFilter: {fileID: 0}
+    Weight: 20
+  - Behaviour: {fileID: 11400000, guid: 2fda64376d9874d4e83ade73941eed02, type: 2}
+    GroupFilter: {fileID: 0}
+    Weight: 100

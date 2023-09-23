@@ -25,11 +25,13 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public GameObject deathEffectPF;
 
     private bool _isInuvlnerable;
+    private bool isDead;
 
     public void OnEnable()
     {
         CurrentHealth = MaxHealth;
         _isInuvlnerable = false;
+        isDead = false;
     }
 
     public void Die()
@@ -41,6 +43,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
             ObjectPoolManager.ReturnToPool(gameObject);
         else
             Destroy(gameObject);
+
+        isDead = true;
     }
 
     public void Heal(float amount)
@@ -57,7 +61,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (_isInuvlnerable) return;
 
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0 && !isDead)
         {
             Die();
         }
