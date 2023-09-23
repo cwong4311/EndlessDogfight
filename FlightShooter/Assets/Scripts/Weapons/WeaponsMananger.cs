@@ -98,20 +98,7 @@ public class WeaponsMananger : MonoBehaviour
                 _isSecondaryReload = false;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ChangeWeapon(_currentWeapon.WeaponName);
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            testType = (testType + 1) % 4;
-            ChangeWeapon(_availablePrimaryWeapons[testType].WeaponName);
-            ChangeSecondary(_availableSecondaryWeapons[testType].WeaponName);
-        }
     }
-    int testType = 0;
 
     public void ShootPrimary()
     {
@@ -148,7 +135,7 @@ public class WeaponsMananger : MonoBehaviour
                     bullet.Direction = bulletNozzle.forward;
                     bullet.LifeTime = targetWeapon.BulletTravelDistance / targetWeapon.BulletSpeed;
                     bullet.TargetColliders = _enemyLayers;
-                    bullet.SetLayer(LayerMask.NameToLayer("Player"));
+                    bullet.SetLayer(LayerMask.NameToLayer("PlayerBullet"));
 
                     bullet.Fire();
                 }

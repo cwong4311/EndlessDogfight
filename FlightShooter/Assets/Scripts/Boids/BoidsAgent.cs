@@ -19,6 +19,7 @@ public class BoidsAgent : MonoBehaviour
     private float _sqrAvoidanceRadius;
     public float SqrAvoidRadius => _sqrAvoidanceRadius;
 
+    public float DriveFactor = 10f;
     public float MovementSpeed = 10f;
     public float TurnPrecision = 5f;
     public float TurnDampingFactor = 5f;
@@ -54,19 +55,14 @@ public class BoidsAgent : MonoBehaviour
         // Transform Update method
         else
         {
-            desiredDirection *= TurnPrecision;
+            desiredDirection *= DriveFactor;
             if (desiredDirection.sqrMagnitude > _sqrMaxSpeed)
             {
                 desiredDirection = desiredDirection.normalized * MovementSpeed;
             }
 
-            if (desiredDirection.sqrMagnitude < 1f)
-            {
-                desiredDirection = transform.forward * MovementSpeed;
-            }
-
-            transform.forward = desiredDirection;
-            transform.position += desiredDirection * Time.deltaTime;
+            transform.forward = Vector3.Slerp(transform.forward, desiredDirection, TurnPrecision * Time.fixedDeltaTime);
+            transform.position += transform.forward * MovementSpeed * Time.fixedDeltaTime;
         }
     }
 

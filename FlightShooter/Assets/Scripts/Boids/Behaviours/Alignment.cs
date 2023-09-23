@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boids/Alignment")]
 public class Alignment : BoidsBehaviour
 {
-    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, BoidsMasterController controller)
+    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, EnemyBoidsController controller)
     {
         if (neighbours.Count == 0) return agent.transform.forward;
 

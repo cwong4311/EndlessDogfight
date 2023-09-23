@@ -9,7 +9,7 @@ public class StayInBoundary : BoidsBehaviour
     public float Radius = 100f;
     public float SoftThreshold;
     
-    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, BoidsMasterController controller)
+    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, EnemyBoidsController controller)
     {
         Vector3 centerOffset = Center - agent.transform.position;
         var distanceFromCenter = centerOffset.magnitude / Radius;

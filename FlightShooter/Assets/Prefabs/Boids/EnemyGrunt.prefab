@@ -655,7 +655,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4427129057575456}
   - component: {fileID: 6070512140053197372}
+  - component: {fileID: 1909218247004834889}
   - component: {fileID: -4323283357192828864}
+  - component: {fileID: 6686809647679652791}
   - component: {fileID: 3290972937276478106}
   m_Layer: 8
   m_Name: EnemyGrunt
@@ -698,9 +700,26 @@ MonoBehaviour:
   Behaviour: {fileID: 11400000, guid: 352fbf531bee9184381109ebb0eebb03, type: 2}
   NeighbourRadius: 60
   AvoidRadiusMultiplier: 0.5
+  DriveFactor: 60
   MovementSpeed: 40
-  TurnPrecision: 30
+  TurnPrecision: 1
   TurnDampingFactor: 0
+--- !u!114 &1909218247004834889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940402267846110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62852e09d5ae08f4b97ed06e85bb07cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponManager: {fileID: 6686809647679652791}
+  FiringRange: 400
+  FiringAngle: 45
+  _playerTarget: {fileID: 0}
 --- !u!114 &-4323283357192828864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,6 +736,29 @@ MonoBehaviour:
   _currentHealth: 60
   deathEffectPF: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
     type: 3}
+--- !u!114 &6686809647679652791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940402267846110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4268f99a7d699484fbad7410ee89cd37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  ShootSlots:
+  - {fileID: 4112329348453358990}
+  Damage: 10
+  RateOfFire: 2
+  BulletPF: {fileID: 6557800050782924257, guid: 6808c94cb2abf2e429069207891b3093,
+    type: 3}
+  BulletSpeed: 2000
+  BulletTravelDistance: 10000
 --- !u!136 &3290972937276478106
 CapsuleCollider:
   m_ObjectHideFlags: 0

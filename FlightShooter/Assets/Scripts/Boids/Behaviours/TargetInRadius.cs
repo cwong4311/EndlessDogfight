@@ -12,7 +12,7 @@ public class TargetInRadius : BoidsBehaviour
     private Vector3 _currentVelocity;
     private SortedDictionary<float, Transform> targetDistances;
 
-    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, BoidsMasterController controller)
+    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, EnemyBoidsController controller)
     {
         if (neighbours.Count == 0) return Vector3.zero;
 

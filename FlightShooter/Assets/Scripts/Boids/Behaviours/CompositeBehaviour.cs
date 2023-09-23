@@ -15,7 +15,7 @@ public class CompositeBehaviour : BoidsBehaviour
 
     public CompositeBehaviourData[] weightedBehaviours;
 
-    public override Vector3 GetMove(BoidsAgent agent, List<Transform> allNeighbours, BoidsMasterController controller)
+    public override Vector3 GetMove(BoidsAgent agent, List<Transform> allNeighbours, EnemyBoidsController controller)
     {
         Vector3 totalMove = Vector3.zero;
         foreach (var weightedBehaviour in weightedBehaviours)

@@ -7,7 +7,7 @@ public class StayAboveGround : BoidsBehaviour
 {
     public float groundLevel;
 
-    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, BoidsMasterController controller)
+    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, EnemyBoidsController controller)
     {
         var distanceFromGround = agent.transform.position.y - groundLevel;
 

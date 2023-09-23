@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoidsMasterController : MonoBehaviour
+public class EnemyBoidsController : MonoBehaviour
 {
     [SerializeField]
     private BoidsAgent _boidsAgentPF;
@@ -84,6 +84,12 @@ public class BoidsMasterController : MonoBehaviour
             {
                 enemyBoid.Init(assignedGroup);
                 _allBoidsAgents.Add(enemyBoid);
+            }
+
+            var enemyController = enemy.GetComponent<EnemyController>();
+            if (enemyController != null)
+            {
+                enemyController.SetTarget(PlayerTarget);
             }
 
             yield return new WaitForSeconds(Random.Range(0.05f, 0.5f));

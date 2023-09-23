@@ -8,7 +8,7 @@ public class Cohesion : BoidsBehaviour
     public float SmoothTime = 0.5f;
     private Vector3 _currentVelocity;
     
-    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, BoidsMasterController controller)
+    public override Vector3 GetMove(BoidsAgent agent, List<Transform> neighbours, EnemyBoidsController controller)
     {
         if (neighbours.Count == 0) return Vector3.zero;
 

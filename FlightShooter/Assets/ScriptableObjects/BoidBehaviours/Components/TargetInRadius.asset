@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b9d9e1e0897b544b89e60bd0bac41d, type: 3}
   m_Name: TargetInRadius
   m_EditorClassIdentifier: 
-  trackingRadius: 300
+  trackingRadius: 500
   stopTrackingRadius: 50
   targetTrackingDamp: 3

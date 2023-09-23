@@ -7017,7 +7017,7 @@ MonoBehaviour:
   - {fileID: 1729329506}
   - {fileID: 355328522}
   PlayerTarget: {fileID: 0}
-  WaveSize: 150
+  WaveSize: 100
   EnemyAreaOrigin: {x: 450, y: 120, z: 530}
   EnemyAreaRadius: 850
 --- !u!1 &368409497
