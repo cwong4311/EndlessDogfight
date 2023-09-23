@@ -45,6 +45,11 @@ public class WeaponsMananger : MonoBehaviour
     private bool _isSecondaryReload;
     private float _secondaryReloadStart;
 
+    public RectTransform PrimaryAmmoBar;
+    public RectTransform SecondaryAmmoBar;
+    private float _originalPrimaryAmmoSize;
+    private float _originalSecondaryAmmoSize;
+
     public void OnEnable()
     {
         foreach (var _primaryWeapon in _availablePrimaryWeapons)
@@ -61,6 +66,9 @@ public class WeaponsMananger : MonoBehaviour
         _isShootCooldown = false;
         _isReloading = false;
         _isSecondaryCD = false;
+
+        _originalPrimaryAmmoSize = PrimaryAmmoBar.sizeDelta.x;
+        _originalSecondaryAmmoSize = SecondaryAmmoBar.sizeDelta.x;
     }
 
     public void Update()
@@ -75,6 +83,8 @@ public class WeaponsMananger : MonoBehaviour
 
         if (_isReloading)
         {
+            UpdatePrimaryAmmoBar(_isReloading);
+
             if (Time.time - _reloadStartTime >= _currentWeapon.ReloadTime)
             {
                 _currentWeapon.CurrentAmmo = _currentWeapon.MagSize;
@@ -92,6 +102,8 @@ public class WeaponsMananger : MonoBehaviour
 
         if (_isSecondaryReload)
         {
+            UpdateSecondaryAmmoBar(_isSecondaryReload);
+
             if (Time.time - _secondaryReloadStart >= _secondaryWeapon.ReloadTime)
             {
                 _secondaryWeapon.CurrentAmmo = _secondaryWeapon.MagSize;
@@ -103,11 +115,13 @@ public class WeaponsMananger : MonoBehaviour
     public void ShootPrimary()
     {
         ShootWeapon(_currentWeapon.GetWeapon(), _isShootCooldown, OverheatPrimary, ReloadPrimary);
+        UpdatePrimaryAmmoBar(false);
     }
 
     public void ShootSecondary()
     {
         ShootWeapon(_secondaryWeapon, _isSecondaryCD, OverheatSecondary, ReloadSecondary);
+        UpdateSecondaryAmmoBar(false);
     }
 
     public void ShootWeapon(Weapon targetWeapon, bool weaponOnCooldown, Action OnOverheat, Action OnReload)
@@ -196,7 +210,8 @@ public class WeaponsMananger : MonoBehaviour
         {
             _currentWeapon.ResetLevel();
             _currentWeapon = LoadWeapon(weaponName);
-
+            
+            _currentWeapon.CurrentAmmo = 0;
             ReloadPrimary();
         }
     }
@@ -207,6 +222,7 @@ public class WeaponsMananger : MonoBehaviour
         {
             _secondaryWeapon = LoadSecondary(secondaryName);
 
+            _secondaryWeapon.CurrentAmmo = 0;
             ReloadSecondary();
         }
     }
@@ -248,5 +264,41 @@ public class WeaponsMananger : MonoBehaviour
         }
 
         return _availableSecondaryWeapons[0];
+    }
+
+    private void UpdatePrimaryAmmoBar(bool isReloading)
+    {
+        if (isReloading)
+        {
+            PrimaryAmmoBar.sizeDelta = new Vector2(
+                _originalPrimaryAmmoSize * ((Time.time - _reloadStartTime) / _currentWeapon.ReloadTime),
+                PrimaryAmmoBar.sizeDelta.y
+            );
+        }
+        else
+        {
+            PrimaryAmmoBar.sizeDelta = new Vector2(
+                _originalPrimaryAmmoSize * (_currentWeapon.CurrentAmmo / _currentWeapon.MagSize),
+                PrimaryAmmoBar.sizeDelta.y
+            );
+        }
+    }
+
+    private void UpdateSecondaryAmmoBar(bool isReloading)
+    {
+        if (isReloading)
+        {
+            SecondaryAmmoBar.sizeDelta = new Vector2(
+                _originalSecondaryAmmoSize * ((Time.time - _secondaryReloadStart) / _secondaryWeapon.ReloadTime),
+                SecondaryAmmoBar.sizeDelta.y
+            );
+        }
+        else
+        {
+            SecondaryAmmoBar.sizeDelta = new Vector2(
+                _originalSecondaryAmmoSize * (_secondaryWeapon.CurrentAmmo / _secondaryWeapon.MagSize),
+                SecondaryAmmoBar.sizeDelta.y
+            );
+        }
     }
 }

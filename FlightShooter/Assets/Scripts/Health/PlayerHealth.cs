@@ -24,12 +24,18 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public GameObject deathEffectPF;
 
+    public RectTransform HPBar;
+    private float originalHPBarSize;
+
     private bool _isInuvlnerable;
 
     public void OnEnable()
     {
         CurrentHealth = MaxHealth;
         _isInuvlnerable = false;
+
+        originalHPBarSize = HPBar.sizeDelta.x;
+        UpdateHealthBar();
     }
 
     public void Die()
@@ -44,6 +50,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             CurrentHealth = MaxHealth;
         }
+
+        UpdateHealthBar();
     }
 
     public void TakeDamage(float damage)
@@ -55,10 +63,29 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             Die();
         }
+
+        UpdateHealthBar();
     }
 
     public void ToggleInvuln(bool active)
     {
         _isInuvlnerable = active;
+    }
+
+    private void UpdateHealthBar()
+    {
+        HPBar.sizeDelta = new Vector2(originalHPBarSize * CurrentHealth / MaxHealth, HPBar.sizeDelta.y);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(10f);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Heal(20f);
+        }
     }
 }
