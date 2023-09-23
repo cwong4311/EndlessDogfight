@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 _localAngularVelocity;
     private float _angleOfAttack;
     private float _angleOfYaw;
-    private float _currentTurnSpeed;
+    private float _currentVerticalTurnSpeed;
+    private float _currentHorizontalTurnSpeed;
 
     private void Awake()
     {
@@ -33,8 +34,8 @@ public class PlayerController : MonoBehaviour
         }
 
         _rb.drag = Mathf.Epsilon;
-        _currentTurnSpeed = TurnSpeed;
-        Debug.Log(_currentTurnSpeed);
+        _currentVerticalTurnSpeed = TurnSpeed;
+        _currentHorizontalTurnSpeed = TurnSpeed;
     }
 
     // Update is called once per frame
@@ -112,8 +113,8 @@ public class PlayerController : MonoBehaviour
         var roll = Input.GetAxis("Roll");
 
         Vector3 rollForce = -1 * transform.forward * roll * RollSpeed;
-        Vector3 pitchForce = -1 * transform.right * pitch * _currentTurnSpeed;
-        Vector3 yawForce = transform.up * yaw * _currentTurnSpeed;
+        Vector3 pitchForce = -1 * transform.right * pitch * _currentVerticalTurnSpeed;
+        Vector3 yawForce = transform.up * yaw * _currentHorizontalTurnSpeed;
 
         _rb.AddTorque(rollForce + pitchForce + yawForce, ForceMode.VelocityChange);
     }
@@ -135,7 +136,8 @@ public class PlayerController : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & CollisionAvoidanceLayerMask.value) != 0)
         {
-            _currentTurnSpeed = CollisionAvoidanceSpeed;
+            _currentVerticalTurnSpeed = CollisionAvoidanceSpeed * 10;
+            _currentHorizontalTurnSpeed = CollisionAvoidanceSpeed;
         }
     }
 
@@ -143,8 +145,8 @@ public class PlayerController : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & CollisionAvoidanceLayerMask.value) != 0)
         {
-            _currentTurnSpeed = TurnSpeed;
-            Debug.Log(_currentTurnSpeed);
+            _currentVerticalTurnSpeed = TurnSpeed;
+            _currentHorizontalTurnSpeed = TurnSpeed;
         }
     }
 }

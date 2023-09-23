@@ -22,12 +22,22 @@ public class EnemyBoidsController : MonoBehaviour
     private const float enemyDensity = 3f;
     private int assignedGroup;
 
+    private Coroutine _enemySpawnCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
         FindPlayer();
+    }
 
-        var enemySpawner = StartCoroutine(SpawnEnemies());
+    public void SpawnEnemies(List<BoidsAgent> enemiesToSpawn, float modifier = 1f)
+    {
+        if (_enemySpawnCoroutine != null)
+        {
+            StopCoroutine(_enemySpawnCoroutine);
+        }
+
+        _enemySpawnCoroutine = StartCoroutine(SpawnEnemyCoroutine(enemiesToSpawn, modifier));
     }
 
     // Update is called once per frame
@@ -65,15 +75,17 @@ public class EnemyBoidsController : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnEnemies()
+    protected IEnumerator SpawnEnemyCoroutine(List<BoidsAgent> enemiesToSpawn, float modifier = 1f)
     {
-        for (int i = 0; i < WaveSize; i++)
+        yield return new WaitUntil(() => PlayerTarget != null);
+
+        for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
             var randomSpawnPoint = Random.Range(0, spawnAreas.Length);
             assignedGroup = randomSpawnPoint;
 
             var enemy = ObjectPoolManager.Spawn(
-                _boidsAgentPF.gameObject,
+                enemiesToSpawn[i].gameObject,
                 spawnAreas[randomSpawnPoint].position + (Vector3.up * 18f),
                 Quaternion.Euler(new Vector3(Random.Range(-120, 120), Random.Range(-120, 120), Random.Range(-120, 120)))
             );
@@ -90,11 +102,15 @@ public class EnemyBoidsController : MonoBehaviour
             if (enemyController != null)
             {
                 enemyController.SetTarget(PlayerTarget);
+                enemyController.Buff(modifier);
             }
 
             yield return new WaitForSeconds(Random.Range(0.05f, 0.5f));
         }
+
+        _enemySpawnCoroutine = null;
     }
+
     private void FindPlayer()
     {
         var player = GameObject.FindFirstObjectByType<PlayerController>();

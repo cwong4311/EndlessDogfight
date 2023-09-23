@@ -45,6 +45,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
             Destroy(gameObject);
 
         isDead = true;
+        WaveController.onEnemyDeathPowerup.Invoke(transform.position);
     }
 
     public void Heal(float amount)

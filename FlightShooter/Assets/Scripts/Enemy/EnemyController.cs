@@ -22,6 +22,11 @@ public class EnemyController : MonoBehaviour
         _playerTarget = player;
     }
 
+    public void Buff(float modifier)
+    {
+        WeaponManager.DamageMod = 1 + modifier;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

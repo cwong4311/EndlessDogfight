@@ -19,6 +19,8 @@ public class EnemyWeapon : MonoBehaviour
     private bool _isShootCooldown;
     private float _isShootStartTime;
 
+    public float DamageMod = 1f;
+
     public void Update()
     {
         if (_isShootCooldown)
@@ -44,7 +46,7 @@ public class EnemyWeapon : MonoBehaviour
                 ).GetComponent<IProjectile>();
 
                 bullet.Force = BulletSpeed;
-                bullet.Damage = Damage;
+                bullet.Damage = Damage * DamageMod;
                 bullet.Direction = bulletNozzle.forward;
                 bullet.LifeTime = BulletTravelDistance / BulletSpeed;
                 bullet.TargetColliders = TargetLayers;
