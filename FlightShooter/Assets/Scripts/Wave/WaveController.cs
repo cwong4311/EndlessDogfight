@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveController : MonoBehaviour
@@ -8,6 +9,9 @@ public class WaveController : MonoBehaviour
     public EnemyBoidsController EnemySpawner;
     public WaveStats[] WaveStats;
     public GameObject healPF;
+
+    public TextMeshProUGUI UIWaveCounter;
+    public TextMeshProUGUI UIWaveTimer;
 
     [Range(1, 100)]
     public int PowerupDropChance = 5;
@@ -33,6 +37,8 @@ public class WaveController : MonoBehaviour
 
     private void Update()
     {
+        UIWaveTimer.text = ((int)(_currentWaveDuration - (Time.time - _waveTimer))).ToString();
+
         if (Time.time - _waveTimer > _currentWaveDuration)
         {
             StartWave();
@@ -58,6 +64,7 @@ public class WaveController : MonoBehaviour
     {
         _waveTimer = Time.time;
         _waveLevel++;
+        UIWaveCounter.text = _waveLevel.ToString();
 
         if (_waveLevel <= WaveStats.Length)
         {
