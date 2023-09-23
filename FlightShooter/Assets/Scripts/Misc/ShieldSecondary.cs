@@ -16,6 +16,7 @@ public class ShieldSecondary : MonoBehaviour, IProjectile
 
     public float ShieldRange;
     public float HealAmount;
+    public bool TemporaryInvuln;
 
     private float _aliveSince;
     private IHealth _userHealth;
@@ -53,12 +54,13 @@ public class ShieldSecondary : MonoBehaviour, IProjectile
 
         foreach (var potentialTarget in listOfColliders)
         {
-            if ((potentialTarget.gameObject.layer == gameObject.layer)
+            if (IsSameLayer(potentialTarget.gameObject.layer, gameObject.layer)
                 && potentialTarget.TryGetComponent<IHealth>(out _userHealth))
             {
-                _userHealth.ToggleInvuln(true);
+                _userHealth.ToggleInvuln(TemporaryInvuln);
                 _userHealth.Heal(HealAmount);
                 transform.SetParent(potentialTarget.transform, false);
+                transform.localScale = Vector3.one;
                 transform.localPosition = Vector3.zero;
                 break;
             }
@@ -94,5 +96,23 @@ public class ShieldSecondary : MonoBehaviour, IProjectile
     public void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, ShieldRange);
+    }
+
+    private bool IsSameLayer(int targetLayer, int sourceLayer)
+    {
+        if (targetLayer == gameObject.layer)
+        {
+            return true;
+        }
+        else if (targetLayer == LayerMask.NameToLayer("Player") && gameObject.layer == LayerMask.NameToLayer("PlayerBullet"))
+        {
+            return true;
+        }
+        else if (targetLayer == LayerMask.NameToLayer("Enemy") && gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
