@@ -13,11 +13,18 @@ MonoBehaviour:
   m_Name: GruntBehaviour
   m_EditorClassIdentifier: 
   weightedBehaviours:
-  - behaviour: {fileID: 11400000, guid: 186594d96ded6774bbe2c89af0dc6095, type: 2}
-    weight: 3
-  - behaviour: {fileID: 11400000, guid: d0a5b20cfb15b3044aae4fadbc731028, type: 2}
-    weight: 0.2
-  - behaviour: {fileID: 11400000, guid: 11252884386be7645a815fa6f429ec76, type: 2}
-    weight: 1
-  - behaviour: {fileID: 11400000, guid: 37c13bccf9c8b3f4d894d806fc87e35c, type: 2}
-    weight: 0.3
+  - Behaviour: {fileID: 11400000, guid: 186594d96ded6774bbe2c89af0dc6095, type: 2}
+    GroupFilter: {fileID: 11400000, guid: 808587469d37f4c4cb39f952b01e6022, type: 2}
+    Weight: 3
+  - Behaviour: {fileID: 11400000, guid: d0a5b20cfb15b3044aae4fadbc731028, type: 2}
+    GroupFilter: {fileID: 11400000, guid: 808587469d37f4c4cb39f952b01e6022, type: 2}
+    Weight: 0.2
+  - Behaviour: {fileID: 11400000, guid: 11252884386be7645a815fa6f429ec76, type: 2}
+    GroupFilter: {fileID: 11400000, guid: 6ccd61dc623c5a5479d97507e7c0a055, type: 2}
+    Weight: 1
+  - Behaviour: {fileID: 11400000, guid: 11252884386be7645a815fa6f429ec76, type: 2}
+    GroupFilter: {fileID: 11400000, guid: ccae50ea33dda3f4ab21dafceda0005b, type: 2}
+    Weight: 3
+  - Behaviour: {fileID: 11400000, guid: 37c13bccf9c8b3f4d894d806fc87e35c, type: 2}
+    GroupFilter: {fileID: 0}
+    Weight: 0.3

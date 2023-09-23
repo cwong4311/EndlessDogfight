@@ -14,7 +14,12 @@ public class Avoidance : BoidsBehaviour
 
         foreach (Transform neighbour in neighbours)
         {
-            if (Vector3.SqrMagnitude(neighbour.position - agent.transform.position) < agent.SqrAvoidRadius)
+            var neighbourCollider = neighbour.gameObject.GetComponent<Collider>();
+            var closestPoint = (neighbourCollider != null) ?
+                neighbour.gameObject.GetComponent<Collider>().ClosestPoint(agent.transform.position) :
+                neighbour.position;
+
+            if (Vector3.SqrMagnitude(closestPoint - agent.transform.position) < agent.SqrAvoidRadius)
             {
                 avoidCount++;
                 finalMovement += (agent.transform.position - neighbour.position);

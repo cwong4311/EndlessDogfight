@@ -9,24 +9,31 @@ public class BoidsMasterController : MonoBehaviour
     private List<BoidsAgent> _allBoidsAgents = new List<BoidsAgent>();
     private List<BoidsAgent> _destroyedAgents = new List<BoidsAgent>();
 
+    public Transform PlayerTarget;
+
     public int WaveSize = 5;
 
     public Vector3 EnemyAreaOrigin;
     public float EnemyAreaRadius;
 
     private const float enemyDensity = 3f;
+    private int assignedGroup;
 
     // Start is called before the first frame update
     void Start()
     {
+        var player = GameObject.FindFirstObjectByType<PlayerController>();
+        if (player != null) PlayerTarget = player.transform;
+
         for (int i = 0; i < WaveSize; i++)
         {
-            var enemy = ObjectPoolManager.Spawn(_boidsAgentPF.gameObject, transform.position + (Vector3)(Random.insideUnitCircle * WaveSize * enemyDensity) + Vector3.up * 100f, Quaternion.Euler(Vector3.forward * Random.Range(0, 360)));
+            var enemy = ObjectPoolManager.Spawn(_boidsAgentPF.gameObject, transform.position + (Vector3)(Random.insideUnitCircle * WaveSize * enemyDensity) + Vector3.up * 300f, Quaternion.Euler(Vector3.forward * Random.Range(0, 360)));
             enemy.transform.parent = transform;
 
             var enemyBoid = enemy.GetComponent<BoidsAgent>();
             if (enemyBoid != null)
             {
+                enemyBoid.Init(assignedGroup);
                 _allBoidsAgents.Add(enemyBoid);
             }
         }
@@ -44,18 +51,20 @@ public class BoidsMasterController : MonoBehaviour
                 continue;
             }
 
-            List<Transform> nearbyEnemies = new List<Transform>();
+            List<Transform> nearbyColliders = new List<Transform>();
 
             Collider[] contacts = Physics.OverlapSphere(enemy.transform.position, enemy.NeighbourRadius);
             foreach (var c in contacts)
             {
-                if (c != enemy.Collider && c.name.Contains("Enemy"))
+                if (c != enemy.Collider)
                 {
-                    nearbyEnemies.Add(c.transform);
+                    nearbyColliders.Add(c.transform);
                 }
             }
+            // Add player as a potential target. Most Boids behaviours will have filters to ignore this.
+            if (PlayerTarget != null) nearbyColliders.Add(PlayerTarget);
 
-            Vector3 movement = enemy.Behaviour.GetMove(enemy, nearbyEnemies, this);
+            Vector3 movement = enemy.Behaviour.GetMove(enemy, nearbyColliders, this);
             enemy.Move(movement);
         }
 

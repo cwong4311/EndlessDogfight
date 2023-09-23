@@ -8,6 +8,7 @@ public class BoidsAgent : MonoBehaviour
     [SerializeField]
     Collider _collider;
     public Collider Collider => _collider;
+    public int BoidsGroup;
 
     public BoidsBehaviour Behaviour;
     public float NeighbourRadius = 60f;
@@ -30,6 +31,11 @@ public class BoidsAgent : MonoBehaviour
         _sqrAvoidanceRadius = _sqrNeighbourRadius * AvoidRadiusMultiplier * AvoidRadiusMultiplier;
 
         _rb = GetComponent<Rigidbody>();
+    }
+
+    public void Init(int boidsGroup)
+    {
+        BoidsGroup = boidsGroup;
     }
 
     public void Move(Vector3 desiredDirection)
