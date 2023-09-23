@@ -656,10 +656,9 @@ GameObject:
   - component: {fileID: 4427129057575456}
   - component: {fileID: 6070512140053197372}
   - component: {fileID: -4323283357192828864}
-  - component: {fileID: 2453117876592728092}
   - component: {fileID: 3290972937276478106}
   m_Layer: 8
-  m_Name: Grunt
+  m_Name: EnemyGrunt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,8 +697,9 @@ MonoBehaviour:
   Behaviour: {fileID: 11400000, guid: 352fbf531bee9184381109ebb0eebb03, type: 2}
   NeighbourRadius: 60
   AvoidRadiusMultiplier: 0.5
-  MovementSpeed: 2000
-  TurnPrecision: 1000
+  MovementSpeed: 50
+  TurnPrecision: 40
+  TurnDampingFactor: 0
 --- !u!114 &-4323283357192828864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,22 +716,6 @@ MonoBehaviour:
   _currentHealth: 60
   deathEffectPF: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
     type: 3}
---- !u!54 &2453117876592728092
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940402267846110}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 1
-  m_AngularDrag: 3
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!136 &3290972937276478106
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -7012,7 +7012,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boidsAgentPF: {fileID: 6070512140053197372, guid: c423aafa98be5fa4295a232f628838a2,
     type: 3}
-  waveSize: 50
+  WaveSize: 100
+  EnemyAreaOrigin: {x: 450, y: 120, z: 530}
+  EnemyAreaRadius: 850
 --- !u!1 &368409497
 GameObject:
   m_ObjectHideFlags: 0

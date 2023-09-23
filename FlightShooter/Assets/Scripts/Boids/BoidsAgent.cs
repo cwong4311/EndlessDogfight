@@ -20,6 +20,7 @@ public class BoidsAgent : MonoBehaviour
 
     public float MovementSpeed = 10f;
     public float TurnPrecision = 5f;
+    public float TurnDampingFactor = 5f;
     private Rigidbody _rb;
 
     private void Start()
@@ -33,10 +34,33 @@ public class BoidsAgent : MonoBehaviour
 
     public void Move(Vector3 desiredDirection)
     {
+        // RB Physics method
         if (_rb != null)
         {
-            _rb.AddRelativeTorque(desiredDirection * TurnPrecision);
+            float angleDifference = Vector3.Angle(transform.up, desiredDirection);
+            Vector3 rotationAxis = Vector3.Cross(transform.up, desiredDirection);
+
+            _rb.AddTorque(rotationAxis * angleDifference * TurnPrecision);
             _rb.AddForce(transform.forward * MovementSpeed, ForceMode.Force);
+
+            _rb.AddTorque(-_rb.angularVelocity * TurnDampingFactor);
+        }
+        // Transform Update method
+        else
+        {
+            desiredDirection *= TurnPrecision;
+            if (desiredDirection.sqrMagnitude > _sqrMaxSpeed)
+            {
+                desiredDirection = desiredDirection.normalized * MovementSpeed;
+            }
+
+            if (desiredDirection.sqrMagnitude < 1f)
+            {
+                desiredDirection = transform.forward * MovementSpeed;
+            }
+
+            transform.forward = desiredDirection;
+            transform.position += desiredDirection * Time.deltaTime;
         }
     }
 
