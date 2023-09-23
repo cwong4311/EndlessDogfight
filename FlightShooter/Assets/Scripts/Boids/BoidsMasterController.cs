@@ -9,6 +9,9 @@ public class BoidsMasterController : MonoBehaviour
     private List<BoidsAgent> _allBoidsAgents = new List<BoidsAgent>();
     private List<BoidsAgent> _destroyedAgents = new List<BoidsAgent>();
 
+    [SerializeField]
+    private Transform[] spawnAreas;
+
     public Transform PlayerTarget;
 
     public int WaveSize = 5;
@@ -22,21 +25,9 @@ public class BoidsMasterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var player = GameObject.FindFirstObjectByType<PlayerController>();
-        if (player != null) PlayerTarget = player.transform;
+        FindPlayer();
 
-        for (int i = 0; i < WaveSize; i++)
-        {
-            var enemy = ObjectPoolManager.Spawn(_boidsAgentPF.gameObject, transform.position + (Vector3)(Random.insideUnitCircle * WaveSize * enemyDensity) + Vector3.up * 300f, Quaternion.Euler(Vector3.forward * Random.Range(0, 360)));
-            enemy.transform.parent = transform;
-
-            var enemyBoid = enemy.GetComponent<BoidsAgent>();
-            if (enemyBoid != null)
-            {
-                enemyBoid.Init(assignedGroup);
-                _allBoidsAgents.Add(enemyBoid);
-            }
-        }
+        var enemySpawner = StartCoroutine(SpawnEnemies());
     }
 
     // Update is called once per frame
@@ -72,6 +63,36 @@ public class BoidsMasterController : MonoBehaviour
         {
             _allBoidsAgents.Remove(destroyed);
         }
+    }
+
+    private IEnumerator SpawnEnemies()
+    {
+        for (int i = 0; i < WaveSize; i++)
+        {
+            var randomSpawnPoint = Random.Range(0, spawnAreas.Length);
+            assignedGroup = randomSpawnPoint;
+
+            var enemy = ObjectPoolManager.Spawn(
+                _boidsAgentPF.gameObject,
+                spawnAreas[randomSpawnPoint].position + (Vector3.up * 18f),
+                Quaternion.Euler(new Vector3(Random.Range(-120, 120), Random.Range(-120, 120), Random.Range(-120, 120)))
+            );
+            enemy.transform.parent = transform;
+
+            var enemyBoid = enemy.GetComponent<BoidsAgent>();
+            if (enemyBoid != null)
+            {
+                enemyBoid.Init(assignedGroup);
+                _allBoidsAgents.Add(enemyBoid);
+            }
+
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.5f));
+        }
+    }
+    private void FindPlayer()
+    {
+        var player = GameObject.FindFirstObjectByType<PlayerController>();
+        if (player != null) PlayerTarget = player.transform;
     }
 
     private void OnDrawGizmos()

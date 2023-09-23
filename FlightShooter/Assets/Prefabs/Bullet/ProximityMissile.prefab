@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce40262683362146bb39b8629a185ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProximityRadius: 10
+  ProximityRadius: 15
   CollisionPF: {fileID: 4693679393813918749, guid: 9eb77fa60769f70489dde64d9d402b2c,
     type: 3}
 --- !u!1001 &3755403533138884031

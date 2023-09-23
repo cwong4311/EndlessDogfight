@@ -7012,6 +7012,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boidsAgentPF: {fileID: 6070512140053197372, guid: c423aafa98be5fa4295a232f628838a2,
     type: 3}
+  spawnAreas:
+  - {fileID: 1983137775}
+  - {fileID: 1729329506}
+  - {fileID: 355328522}
   PlayerTarget: {fileID: 0}
   WaveSize: 150
   EnemyAreaOrigin: {x: 450, y: 120, z: 530}
