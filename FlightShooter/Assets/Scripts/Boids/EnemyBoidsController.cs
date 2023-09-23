@@ -97,6 +97,10 @@ public class EnemyBoidsController : MonoBehaviour
                 enemyBoid.Init(assignedGroup);
                 _allBoidsAgents.Add(enemyBoid);
             }
+            else
+            {
+                Debug.LogError("EnemyBoid instantiated with no BoidsAgent");
+            }
 
             var enemyController = enemy.GetComponent<EnemyController>();
             if (enemyController != null)
@@ -105,7 +109,7 @@ public class EnemyBoidsController : MonoBehaviour
                 enemyController.Buff(modifier);
             }
 
-            yield return new WaitForSeconds(Random.Range(0.05f, 0.5f));
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
         }
 
         _enemySpawnCoroutine = null;

@@ -12,6 +12,7 @@ public class WaveController : MonoBehaviour
 
     public TextMeshProUGUI UIWaveCounter;
     public TextMeshProUGUI UIWaveTimer;
+    public TextMeshProUGUI EnemiesLeftCounter;
 
     [Range(1, 100)]
     public int PowerupDropChance = 5;
@@ -107,6 +108,7 @@ public class WaveController : MonoBehaviour
             }
 
             _enemiesActive += spawnCount;
+            EnemiesLeftCounter.text = _enemiesActive.ToString();
         }
 
         EnemySpawner.SpawnEnemies(enemiesThisWave, extraWaveMultiplier);
@@ -119,6 +121,7 @@ public class WaveController : MonoBehaviour
     private void OnEnemyDeathPowerup(Vector3 deathLocation)
     {
         _enemiesActive--;
+        EnemiesLeftCounter.text = _enemiesActive.ToString();
 
         if (UnityEngine.Random.Range(0, 100) < PowerupDropChance)
         {
