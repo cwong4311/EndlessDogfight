@@ -808,7 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 300
   _currentHealth: 300
-  deathEffectPF: {fileID: 0}
+  DeathSequence: {fileID: 0}
   HPBar: {fileID: 0}
 --- !u!114 &2651648151924889001
 MonoBehaviour:
