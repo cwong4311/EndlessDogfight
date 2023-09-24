@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 159096453622025597}
   - component: {fileID: 4677659400700268317}
   m_Layer: 0
-  m_Name: NukeExplosion
+  m_Name: Enemy_Nuke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4693679393813918749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 115.405, y: 115.405, z: 115.405}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,11 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18f8303c73838f49a4169f1de0590d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 200
-  DelayBeforeApplying: 0.1
+  Damage: 80
+  DelayBeforeApplying: 0.2
   AddForceWhenDamaging: 1
   ExplosionRadius: 130
-  ExplosionForce: 5
+  ExplosionForce: 1000
   TargetCollisionLayer:
     serializedVersion: 2
     m_Bits: 320

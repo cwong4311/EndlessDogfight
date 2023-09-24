@@ -697,12 +697,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 3290972937276478106}
   BoidsGroup: 0
-  Behaviour: {fileID: 11400000, guid: 352fbf531bee9184381109ebb0eebb03, type: 2}
+  Behaviour: {fileID: 11400000, guid: 4ce3b3933d983564cbb1eed24cedb717, type: 2}
   NeighbourRadius: 60
   AvoidRadiusMultiplier: 0.5
-  DriveFactor: 60
-  MovementSpeed: 40
-  TurnPrecision: 1
+  DriveFactor: 100
+  MovementSpeed: 70
+  TurnPrecision: 0.6
   TurnDampingFactor: 0
 --- !u!114 &1909218247004834889
 MonoBehaviour:
@@ -732,8 +732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 166ac998c640fc14aaf2ae346786fbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 60
-  _currentHealth: 60
+  _maxHealth: 10
+  _currentHealth: 10
   deathEffectPF: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
     type: 3}
 --- !u!114 &6686809647679652791
@@ -759,6 +759,7 @@ MonoBehaviour:
     type: 3}
   BulletSpeed: 2000
   BulletTravelDistance: 10000
+  DamageMod: 1
 --- !u!136 &3290972937276478106
 CapsuleCollider:
   m_ObjectHideFlags: 0

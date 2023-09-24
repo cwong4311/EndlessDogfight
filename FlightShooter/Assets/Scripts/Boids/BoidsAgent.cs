@@ -62,7 +62,7 @@ public class BoidsAgent : MonoBehaviour
             }
 
             transform.forward = Vector3.Slerp(transform.forward, desiredDirection, TurnPrecision * Time.fixedDeltaTime);
-            transform.position += transform.forward * MovementSpeed * Time.fixedDeltaTime;
+            transform.Translate(transform.forward * MovementSpeed * Time.fixedDeltaTime, Space.World);
         }
     }
 

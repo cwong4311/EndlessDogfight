@@ -16,6 +16,7 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
 
     public float ProximityRadius;
     public GameObject CollisionPF;
+    public bool canBeShot = false;
 
     private Rigidbody _rb;
     private TrailRenderer _tr;
@@ -80,6 +81,11 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
             
             Destroy();
         }
+
+        if (IsShotDown(collision))
+        {
+            Destroy();
+        }
     }
 
     public void SetLayer(int layer)
@@ -88,7 +94,8 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
         var children = GetComponentsInChildren<Transform>(includeInactive: true);
         foreach (var child in children)
         {
-            child.gameObject.layer = layer;
+            if (child.gameObject.layer != LayerMask.NameToLayer("Marker"))
+                child.gameObject.layer = layer;
         }
     }
 
@@ -110,6 +117,24 @@ public class ProximityProjectile : MonoBehaviour, IProjectile
         }
 
         ObjectPoolManager.ReturnToPool(gameObject);
+    }
+
+    public bool IsShotDown(Collision collision)
+    {
+        if (canBeShot == false) return false;
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerBullet")
+            && gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+        {
+            return true;
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet")
+            && gameObject.layer == LayerMask.NameToLayer("PlayerBullet"))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void OnDrawGizmos()

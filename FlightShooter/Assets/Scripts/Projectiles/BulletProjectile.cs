@@ -69,7 +69,8 @@ public class BulletProjectile : MonoBehaviour, IProjectile
         var children = GetComponentsInChildren<Transform>(includeInactive: true);
         foreach (var child in children)
         {
-            child.gameObject.layer = layer;
+            if (child.gameObject.layer != LayerMask.NameToLayer("Marker"))
+                child.gameObject.layer = layer;
         }
     }
 

@@ -28,14 +28,25 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private float originalHPBarSize;
 
     private bool _isInuvlnerable;
+    private float _damageIntensity;
+    private float _tempInvulnStart;
 
     public void OnEnable()
     {
         CurrentHealth = MaxHealth;
         _isInuvlnerable = false;
+        _damageIntensity = -1f;
 
         originalHPBarSize = HPBar.sizeDelta.x;
         UpdateHealthBar();
+    }
+
+    public void Update()
+    {
+        if (_damageIntensity > 0 && Time.time - _tempInvulnStart > _damageIntensity)
+        {
+            ToggleTemporaryInvulnAfterDamage(false);
+        }
     }
 
     public void Die()
@@ -64,6 +75,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
             Die();
         }
 
+        ToggleTemporaryInvulnAfterDamage(true, damage);
         UpdateHealthBar();
     }
 
@@ -77,15 +89,11 @@ public class PlayerHealth : MonoBehaviour, IHealth
         HPBar.sizeDelta = new Vector2(originalHPBarSize * CurrentHealth / MaxHealth, HPBar.sizeDelta.y);
     }
 
-    public void Update()
+    private void ToggleTemporaryInvulnAfterDamage(bool active, float damageTaken = 0f)
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            TakeDamage(10f);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Heal(20f);
-        }
+        _tempInvulnStart = Time.time;
+        _damageIntensity = active ? damageTaken / 100f : -1f;
+
+        ToggleInvuln(active);
     }
 }
