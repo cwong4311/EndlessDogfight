@@ -35692,11 +35692,5 @@ PrefabInstance:
       propertyPath: EnemiesLeftCounter
       value: 
       objectReference: {fileID: 1611758631}
-    - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
-        type: 3}
-      propertyPath: WaveStats.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 9b1b595f639833344a7e0b32004602e7,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 589269310c9319b4ba0719660a228fa3, type: 3}

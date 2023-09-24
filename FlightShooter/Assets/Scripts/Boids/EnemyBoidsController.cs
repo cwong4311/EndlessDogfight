@@ -73,6 +73,8 @@ public class EnemyBoidsController : MonoBehaviour
         {
             _allBoidsAgents.Remove(destroyed);
         }
+
+        if (_destroyedAgents.Count > 0) _destroyedAgents.Clear();
     }
 
     protected IEnumerator SpawnEnemyCoroutine(List<BoidsAgent> enemiesToSpawn, float modifier = 1f)
