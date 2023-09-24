@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TEST Wave
   m_EditorClassIdentifier: 
   usableEnemies:
-  - enemyType: {fileID: 6070512140053197372, guid: 790102a8659818448a3b5ce97c44109d,
+  - enemyType: {fileID: 6070512140053197372, guid: 7904338f8c4b5ae469a4af26060d668e,
       type: 3}
     maxCount: 99
     points: 1

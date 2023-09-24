@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         set { _currentHealth = value; }
     }
 
-    public GameObject deathEffectPF;
+    public GameObject DeathEffectPF;
 
     private bool _isInuvlnerable;
     private bool isDead;
@@ -36,8 +36,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
-        if (deathEffectPF)
-            ObjectPoolManager.Spawn(deathEffectPF, transform.position, transform.rotation);
+        if (DeathEffectPF)
+            ObjectPoolManager.Spawn(DeathEffectPF, transform.position, transform.rotation);
        
         if (ObjectPoolManager.IsPooledObject(gameObject))
             ObjectPoolManager.ReturnToPool(gameObject);

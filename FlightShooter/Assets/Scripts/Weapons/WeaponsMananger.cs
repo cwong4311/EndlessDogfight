@@ -22,7 +22,7 @@ public class WeaponSlotAssignment
     public Transform WeaponSlotTransform;
 }
 
-public class WeaponsMananger : MonoBehaviour
+public class WeaponsMananger : MonoBehaviour, IWeaponManager
 {
     public LayerMask _enemyLayers;
 
@@ -122,6 +122,11 @@ public class WeaponsMananger : MonoBehaviour
     {
         ShootWeapon(_secondaryWeapon, _isSecondaryCD, OverheatSecondary, ReloadSecondary);
         UpdateSecondaryAmmoBar(false);
+    }
+
+    public void ShootWeapon()
+    {
+        // Not used for Player's weapon manager
     }
 
     public void ShootWeapon(Weapon targetWeapon, bool weaponOnCooldown, Action OnOverheat, Action OnReload)

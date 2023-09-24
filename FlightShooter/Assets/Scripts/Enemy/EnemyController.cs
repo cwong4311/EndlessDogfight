@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public float FiringRange;
     public float FiringAngle;
 
-    public Transform _playerTarget;
+    public Transform PlayerTarget;
     private float _sqrFiringRange;
 
     public void OnEnable()
@@ -19,12 +19,16 @@ public class EnemyController : MonoBehaviour
 
     public void SetTarget(Transform player)
     {
-        _playerTarget = player;
+        PlayerTarget = player;
     }
 
     public void Buff(float modifier)
     {
-        WeaponManager.DamageMod = 1 + modifier;
+        var enemyWeapon = WeaponManager as EnemyWeapon;
+        if (enemyWeapon != null)
+        {
+            enemyWeapon.DamageMod = 1 + modifier;
+        }
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class EnemyController : MonoBehaviour
 
     private bool CanFire()
     {
-        var dirToPlayer = transform.position - _playerTarget.position;
+        var dirToPlayer = transform.position - PlayerTarget.position;
         if (dirToPlayer.sqrMagnitude < _sqrFiringRange)
         {
             return true;

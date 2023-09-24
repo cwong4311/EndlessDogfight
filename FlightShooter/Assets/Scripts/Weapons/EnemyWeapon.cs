@@ -4,7 +4,7 @@ using System.Linq;
 using System;
 
 
-public class EnemyWeapon : MonoBehaviour
+public class EnemyWeapon : MonoBehaviour, IWeaponManager
 {
     public LayerMask TargetLayers;
 
@@ -31,7 +31,7 @@ public class EnemyWeapon : MonoBehaviour
             }
         }
     }
-    public void ShootWeapon()
+    public virtual void ShootWeapon()
     {
         if (!_isShootCooldown)
         {
