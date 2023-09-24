@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private float _currentVerticalTurnSpeed;
     private float _currentHorizontalTurnSpeed;
 
+    public bool CanShoot = true;
+
     private void Awake()
     {
         if (TryGetComponent<Rigidbody>(out _rb) == false)
@@ -121,14 +123,17 @@ public class PlayerController : MonoBehaviour
 
     private void HandlePlayerShoot()
     {
-        if (Input.GetButton("Fire1"))
+        if (CanShoot)
         {
-            WeaponsMananger.ShootPrimary();
-        }
+            if (Input.GetButton("Fire1"))
+            {
+                WeaponsMananger.ShootPrimary();
+            }
 
-        if (Input.GetButton("Fire2"))
-        {
-            WeaponsMananger.ShootSecondary();
+            if (Input.GetButton("Fire2"))
+            {
+                WeaponsMananger.ShootSecondary();
+            }
         }
     }
 

@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         set { _currentHealth = value; }
     }
 
-    public GameObject deathEffectPF;
+    public PlayerDeathSequence DeathSequence;
 
     public RectTransform HPBar;
     private float originalHPBarSize;
@@ -51,7 +51,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
-        // TO DO
+        DeathSequence.OnPlayerDeath();
     }
 
     public void Heal(float amount)
