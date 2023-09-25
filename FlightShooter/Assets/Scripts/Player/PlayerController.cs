@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class PlayerController : MonoBehaviour
     private float _currentHorizontalTurnSpeed;
 
     public bool CanShoot = true;
+
+    private float _pitch;
+    private float _yaw;
+    private float _roll;
+    private bool _primaryFiring;
+    private bool _secondaryFiring;
 
     private void Awake()
     {
@@ -110,13 +117,13 @@ public class PlayerController : MonoBehaviour
 
     private void HandlePlayerSteer()
     {
-        var yaw = Input.GetAxis("Horizontal");
-        var pitch = Input.GetAxis("Vertical");
-        var roll = Input.GetAxis("Roll");
+        //var yaw = Input.GetAxis("Horizontal");
+        //var pitch = Input.GetAxis("Vertical");
+        //var roll = Input.GetAxis("Roll");
 
-        Vector3 rollForce = -1 * transform.forward * roll * RollSpeed;
-        Vector3 pitchForce = -1 * transform.right * pitch * _currentVerticalTurnSpeed;
-        Vector3 yawForce = transform.up * yaw * _currentHorizontalTurnSpeed;
+        Vector3 rollForce = -1 * transform.forward * _roll * RollSpeed;
+        Vector3 pitchForce = -1 * transform.right * _pitch * _currentVerticalTurnSpeed;
+        Vector3 yawForce = transform.up * _yaw * _currentHorizontalTurnSpeed;
 
         _rb.AddTorque(rollForce + pitchForce + yawForce, ForceMode.VelocityChange);
     }
@@ -125,12 +132,12 @@ public class PlayerController : MonoBehaviour
     {
         if (CanShoot)
         {
-            if (Input.GetButton("Fire1"))
+            if (_primaryFiring)
             {
                 WeaponsMananger.ShootPrimary();
             }
 
-            if (Input.GetButton("Fire2"))
+            if (_secondaryFiring)
             {
                 WeaponsMananger.ShootSecondary();
             }
@@ -153,5 +160,32 @@ public class PlayerController : MonoBehaviour
             _currentVerticalTurnSpeed = TurnSpeed;
             _currentHorizontalTurnSpeed = TurnSpeed;
         }
+    }
+
+    public void VerticalMove(InputAction.CallbackContext context)
+    {
+        _pitch = context.ReadValue<float>();
+    }
+
+    public void HorizontalMove(InputAction.CallbackContext context)
+    {
+        _yaw = context.ReadValue<float>();
+    }
+
+    public void RollMove(InputAction.CallbackContext context)
+    {
+        _roll = context.ReadValue<float>();
+    }
+
+    public void PrimaryFire(InputAction.CallbackContext context)
+    {
+        if (context.performed) _primaryFiring = true;
+        if (context.canceled) _primaryFiring = false;
+    }
+
+    public void SecondaryFire(InputAction.CallbackContext context)
+    {
+        if (context.performed) _secondaryFiring = true;
+        if (context.canceled) _secondaryFiring = false;
     }
 }
