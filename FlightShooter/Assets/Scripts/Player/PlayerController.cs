@@ -114,9 +114,9 @@ public class PlayerController : MonoBehaviour
         var pitch = Input.GetAxis("Vertical");
         var roll = Input.GetAxis("Roll");
 
-        Vector3 rollForce = -1 * transform.forward * roll * RollSpeed;
-        Vector3 pitchForce = -1 * transform.right * pitch * _currentVerticalTurnSpeed;
         Vector3 yawForce = transform.up * yaw * _currentHorizontalTurnSpeed;
+        Vector3 pitchForce = 1 * transform.right * pitch * _currentVerticalTurnSpeed;
+        Vector3 rollForce = -1 * transform.forward * (roll + yaw * 1.2f) * RollSpeed;
 
         _rb.AddTorque(rollForce + pitchForce + yawForce, ForceMode.VelocityChange);
     }

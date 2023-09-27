@@ -788,12 +788,13 @@ MonoBehaviour:
   YawStrength: 100
   InducedDragStrength: 1
   TurnSpeed: 0.25
-  RollSpeed: 0.25
+  RollSpeed: 0.4
   CollisionAvoidanceSpeed: 0.7
   CollisionAvoidanceLayerMask:
     serializedVersion: 2
     m_Bits: 64
   WeaponsMananger: {fileID: 2651648151924889001}
+  CanShoot: 1
 --- !u!114 &261512539865840336
 MonoBehaviour:
   m_ObjectHideFlags: 0
