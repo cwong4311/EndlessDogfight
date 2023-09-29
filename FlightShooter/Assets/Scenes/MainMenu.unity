@@ -23365,7 +23365,7 @@ PrefabInstance:
     - target: {fileID: 5221731075159119248, guid: f921d021069e23249a1c533bd3545455,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5221731075159119248, guid: f921d021069e23249a1c533bd3545455,
         type: 3}
@@ -23505,7 +23505,27 @@ PrefabInstance:
     - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
         type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 19.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.13333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280427042
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f921d021069e23249a1c533bd3545455, type: 3}
@@ -37065,7 +37085,7 @@ PrefabInstance:
     - target: {fileID: 5221731075159119248, guid: f921d021069e23249a1c533bd3545455,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5221731075159119248, guid: f921d021069e23249a1c533bd3545455,
         type: 3}
@@ -37196,6 +37216,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.13207549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.13207549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.13207549
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280427042
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f921d021069e23249a1c533bd3545455, type: 3}

@@ -788,7 +788,7 @@ MonoBehaviour:
   YawStrength: 100
   InducedDragStrength: 1
   TurnSpeed: 0.25
-  RollSpeed: 0.4
+  RollSpeed: 0.35
   CollisionAvoidanceSpeed: 0.7
   CollisionAvoidanceLayerMask:
     serializedVersion: 2
