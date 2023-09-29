@@ -744,6 +744,7 @@ MonoBehaviour:
   _currentHealth: 10
   DeathEffectPF: {fileID: 4693679393813918749, guid: 7abd029e492af0540b1b0213ed636f6d,
     type: 3}
+  ScoreOnDefeat: 30
 --- !u!136 &3290972937276478106
 CapsuleCollider:
   m_ObjectHideFlags: 0

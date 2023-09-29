@@ -47,6 +47,10 @@ public class WaveController : MonoBehaviour
 
         if (_waveLevel > 0 && _enemiesActive <= 0)
         {
+            // Add extra pts for finishing early
+            var remainingTime = (int)(_currentWaveDuration - (Time.time - _waveTimer)) * 3;
+            ScoreController.onEnemyDeathScore.Invoke(remainingTime);
+
             StartWave();
         }
     }

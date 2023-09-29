@@ -24,6 +24,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     public GameObject DeathEffectPF;
 
+    public int ScoreOnDefeat;
+
     private bool _isInuvlnerable;
     private bool isDead;
 
@@ -45,6 +47,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
             Destroy(gameObject);
 
         isDead = true;
+        ScoreController.onEnemyDeathScore.Invoke(ScoreOnDefeat);
         WaveController.onEnemyDeathPowerup.Invoke(transform.position);
     }
 

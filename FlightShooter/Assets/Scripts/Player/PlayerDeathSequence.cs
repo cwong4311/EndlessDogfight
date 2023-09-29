@@ -36,6 +36,7 @@ public class PlayerDeathSequence : MonoBehaviour
             NormalCam.SetActive(false);
             DeathCam.SetActive(true);
 
+            ScoreController.onPlayerDeath.Invoke();
             _deathCoroutine = StartCoroutine(DeathSequence());
         }
     }

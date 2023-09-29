@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 3604203367283930005}
   - component: {fileID: 5237734334444967403}
   - component: {fileID: 3604203367283930006}
+  - component: {fileID: 500397617772274080}
   m_Layer: 6
   m_Name: BoidsMaster
   m_TagString: Untagged
@@ -171,6 +172,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a44e94b928015b646ba380160a141465, type: 2}
   - {fileID: 11400000, guid: ec6389f10fa215b44be3dbca009237cd, type: 2}
   healPF: {fileID: 8804232417819741607, guid: 95bed42789c2c2e4bac7d5bf5009d2f3, type: 3}
+  UIWaveCounter: {fileID: 0}
+  UIWaveTimer: {fileID: 0}
+  EnemiesLeftCounter: {fileID: 0}
+  PowerupDropChance: 5
+  HealDropChance: 10
 --- !u!114 &3604203367283930006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +199,21 @@ MonoBehaviour:
   WaveSize: 25
   EnemyAreaOrigin: {x: 450, y: 120, z: 530}
   EnemyAreaRadius: 850
+--- !u!114 &500397617772274080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3604203367283930004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4eb37cf5b83634fae8c1c89b94eb4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreCounter: {fileID: 0}
+  EndScreenScoreCounter: {fileID: 0}
+  ScoreCounterAnimator: {fileID: 0}
 --- !u!1001 &3604203366517255793
 PrefabInstance:
   m_ObjectHideFlags: 0

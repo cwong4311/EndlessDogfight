@@ -720,7 +720,7 @@ MonoBehaviour:
   WeaponManager: {fileID: 6686809647679652791}
   FiringRange: 600
   FiringAngle: 45
-  _playerTarget: {fileID: 0}
+  PlayerTarget: {fileID: 0}
 --- !u!114 &-4323283357192828864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,8 +735,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 120
   _currentHealth: 120
-  deathEffectPF: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
-    type: 3}
+  DeathEffectPF: {fileID: 0}
+  ScoreOnDefeat: 20
 --- !u!114 &6686809647679652791
 MonoBehaviour:
   m_ObjectHideFlags: 0
