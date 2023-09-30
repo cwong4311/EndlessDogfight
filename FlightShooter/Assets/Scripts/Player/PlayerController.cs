@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 
     public bool CanShoot = true;
 
+    [HideInInspector]
+    public Vector3? RestrictVelocity = null;
+
     private void Awake()
     {
         if (TryGetComponent<Rigidbody>(out _rb) == false)
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour
 
         HandlePlayerSteer();
         HandlePlayerShoot();
+
+        ApplyAnyVelocityRestrictions();
     }
 
     private void UpdateCurrentState()
@@ -153,5 +158,25 @@ public class PlayerController : MonoBehaviour
             _currentVerticalTurnSpeed = TurnSpeed;
             _currentHorizontalTurnSpeed = TurnSpeed;
         }
+    }
+
+    private void ApplyAnyVelocityRestrictions()
+    {
+        if (RestrictVelocity.HasValue)
+        {
+            var clampedVelocity = ClampVelocityInRestrictedDirection(_rb.velocity);
+            _rb.velocity = clampedVelocity;
+        }
+    }
+
+    private Vector3 ClampVelocityInRestrictedDirection(Vector3 targetVelocity)
+    {
+        var n = (RestrictVelocity.HasValue) ? RestrictVelocity.Value.normalized : Vector3.zero;
+        var v = targetVelocity;
+
+        float d = Vector3.Dot(v, n);
+        if (d > 0f) v -= n * d;
+
+        return v;
     }
 }
