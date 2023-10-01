@@ -54,8 +54,10 @@ MonoBehaviour:
   RateOfFire: 1
   BulletPF: {fileID: 6557800050782924257, guid: 6808c94cb2abf2e429069207891b3093,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
   BulletSpeed: 6000
   BulletTravelDistance: 24000
+  AudioSourceBullet: {fileID: 5887952133857236297}
   DamageMod: 1
 --- !u!1 &408213014804187340
 GameObject:
@@ -308,8 +310,10 @@ MonoBehaviour:
   RateOfFire: 0.05
   BulletPF: {fileID: 6557800050782924257, guid: 844ffa85f73fc5d43a2415abacf0e3d8,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: 0bd05763df902854a80475577a26666a, type: 3}
   BulletSpeed: 2000
   BulletTravelDistance: 20000
+  AudioSourceBullet: {fileID: 5887952133857236297}
   DamageMod: 1
 --- !u!1 &2708189558813206608
 GameObject:
@@ -557,10 +561,11 @@ AudioSource:
   m_GameObject: {fileID: 3068945100875601026}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5967958520840137061, guid: 3c73c5085910e9648a47445f254a5554,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -569,7 +574,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 800
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -653,7 +658,8 @@ AudioSource:
   m_GameObject: {fileID: 3068945100875601026}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5967958520840137061, guid: 3c73c5085910e9648a47445f254a5554,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: fd3374bed0587864fb7d11f06906a8a4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -662,12 +668,12 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 110
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 2000
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -683,6 +689,24 @@ AudioSource:
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.11780435
+      value: 0.5115923
+      inSlope: -3.7871594
+      outSlope: -3.7871594
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.37581372
+    - serializedVersion: 3
+      time: 0.24216023
+      value: 0.15544972
+      inSlope: -0.57235235
+      outSlope: -0.57235235
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.98918766
+      outWeight: 0.22324939
     - serializedVersion: 3
       time: 1
       value: 0
@@ -700,7 +724,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -749,6 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2429703056257063031}
+  - component: {fileID: 5887952133857236297}
   m_Layer: 8
   m_Name: WeaponsManager
   m_TagString: Untagged
@@ -779,6 +804,121 @@ Transform:
   m_Father: {fileID: 2075117743011227281}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5887952133857236297
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809891522487279886}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -5967958520840137061, guid: 3c73c5085910e9648a47445f254a5554,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.11780435
+      value: 0.5115923
+      inSlope: -3.7871594
+      outSlope: -3.7871594
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.37581372
+    - serializedVersion: 3
+      time: 0.24216023
+      value: 0.15544972
+      inSlope: -0.57235235
+      outSlope: -0.57235235
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.98918766
+      outWeight: 0.22324939
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4552302806172338758
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,8 +1004,10 @@ MonoBehaviour:
   RateOfFire: 0.1
   BulletPF: {fileID: 5116540436245979276, guid: cbbbc1a01522e904ca7b40230ccc7ddd,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}
   BulletSpeed: 2000
   BulletTravelDistance: 20000
+  AudioSourceBullet: {fileID: 5887952133857236297}
   DamageMod: 1
 --- !u!1 &5336240318504950699
 GameObject:
@@ -918,10 +1060,12 @@ MonoBehaviour:
   - {fileID: 5059302840412709020}
   Damage: 10
   RateOfFire: 0.025
-  BulletPF: {fileID: 5116540436245979276, guid: a4ea598d7c881c641963f9722d52c6a5,
+  BulletPF: {fileID: 5116540436245979276, guid: bcec380df67478944af4cb8b7396afee,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: f9eb44b85c96be5429737d4dcadbfa3b, type: 3}
   BulletSpeed: 60000
   BulletTravelDistance: 180000
+  AudioSourceBullet: {fileID: 5887952133857236297}
   DamageMod: 1
 --- !u!1 &6687610632683897798
 GameObject:
@@ -1007,8 +1151,10 @@ MonoBehaviour:
   RateOfFire: 4
   BulletPF: {fileID: 6557800050782924257, guid: 6808c94cb2abf2e429069207891b3093,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
   BulletSpeed: 6000
   BulletTravelDistance: 24000
+  AudioSourceBullet: {fileID: 5887952133857236297}
   DamageMod: 1
 --- !u!1 &8928482373544035961
 GameObject:
