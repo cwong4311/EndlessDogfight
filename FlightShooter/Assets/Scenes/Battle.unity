@@ -34689,16 +34689,6 @@ PrefabInstance:
       objectReference: {fileID: 959548112}
     - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
         type: 3}
-      propertyPath: HealDropChance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
-        type: 3}
-      propertyPath: PowerupDropChance
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
-        type: 3}
       propertyPath: EnemiesLeftCounter
       value: 
       objectReference: {fileID: 1611758631}

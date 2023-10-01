@@ -30,9 +30,15 @@ public class WaveController : MonoBehaviour
 
     public static Action<Vector3> onEnemyDeathPowerup;
 
+    private WaveStats _lastMobWave;
+    private WaveStats _lastBossWave;
+
     private void Start()
     {
         _waveLevel = 0;
+        _lastMobWave = WaveStats[WaveStats.Length - 2];
+        _lastBossWave = WaveStats[WaveStats.Length - 1];
+
         StartWave();
     }
 
@@ -77,7 +83,7 @@ public class WaveController : MonoBehaviour
         }
         else
         {
-            _currentWave = WaveStats[WaveStats.Length - 1];
+            _currentWave = ((_waveLevel - 1) % 10 == 0) ? _lastBossWave: _lastMobWave;
             _extraLevel++;
         }
         float extraWaveMultiplier = _extraLevel / 10;
@@ -86,7 +92,7 @@ public class WaveController : MonoBehaviour
         _currentWaveDuration = _currentWave.WaveDuration * waveModifier;
 
         List<BoidsAgent> enemiesThisWave = new List<BoidsAgent>();
-        var pointsToUse = (int)(_currentWave.totalWavePoints * waveModifier);
+        var pointsToUse = (int)(_currentWave.totalWavePoints);
         var enemiesList = _currentWave.usableEnemies;
         for (int i = 0; i < enemiesList.Length; i++)
         {
