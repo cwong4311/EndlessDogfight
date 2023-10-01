@@ -20,6 +20,7 @@ MonoBehaviour:
   BulletsPerShot: 30
   BulletPF: {fileID: 6557800050782924257, guid: d6ff77fc185fd5c4895575bae2ae80a2,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893, type: 3}
   ReloadTime: 3
   BulletSpeed: 7500
   BulletTravelDistance: 20000

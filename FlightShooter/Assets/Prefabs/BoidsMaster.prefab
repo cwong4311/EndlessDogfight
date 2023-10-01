@@ -178,7 +178,7 @@ MonoBehaviour:
   UIWaveTimer: {fileID: 0}
   EnemiesLeftCounter: {fileID: 0}
   PowerupDropChance: 35
-  HealDropChance: 20
+  HealDropChance: 10
   TickDownSFX: {fileID: 8300000, guid: 174d0aa0c18c9454fb39096e2f3460b9, type: 3}
   _audioSource: {fileID: 1088096887}
 --- !u!114 &3604203367283930006

@@ -12,6 +12,7 @@ public class EnemyWeapon : MonoBehaviour, IWeaponManager
     public float Damage;
     public float RateOfFire;
     public GameObject BulletPF;
+    public AudioClip BulletSound;
 
     public float BulletSpeed;
     public float BulletTravelDistance;
@@ -19,8 +20,11 @@ public class EnemyWeapon : MonoBehaviour, IWeaponManager
     private bool _isShootCooldown;
     private float _isShootStartTime;
 
+    public AudioSource AudioSourceBullet;
+
     public float DamageMod = 1f;
     public bool IsInCooldown => _isShootCooldown;
+
 
     public void Update()
     {
@@ -54,9 +58,18 @@ public class EnemyWeapon : MonoBehaviour, IWeaponManager
                 bullet.SetLayer(LayerMask.NameToLayer("EnemyBullet"));
 
                 bullet.Fire();
+                PlayBulletSound();
             }
 
             OverheatPrimary();
+        }
+    }
+
+    private void PlayBulletSound()
+    {
+        if (AudioSourceBullet != null && BulletSound != null)
+        {
+            AudioSourceBullet.PlayOneShot(BulletSound);
         }
     }
 

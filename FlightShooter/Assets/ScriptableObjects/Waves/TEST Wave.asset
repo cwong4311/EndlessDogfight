@@ -13,9 +13,37 @@ MonoBehaviour:
   m_Name: TEST Wave
   m_EditorClassIdentifier: 
   usableEnemies:
+  - enemyType: {fileID: 6070512140053197372, guid: dcfb652ab0d661a498d088c74567cee4,
+      type: 3}
+    maxCount: 1
+    points: 1
+  - enemyType: {fileID: 6070512140053197372, guid: 967fa121d98555c439c3283aaacfd397,
+      type: 3}
+    maxCount: 1
+    points: 1
   - enemyType: {fileID: 6070512140053197372, guid: 7904338f8c4b5ae469a4af26060d668e,
       type: 3}
-    maxCount: 99
+    maxCount: 1
+    points: 1
+  - enemyType: {fileID: 6070512140053197372, guid: 790102a8659818448a3b5ce97c44109d,
+      type: 3}
+    maxCount: 1
+    points: 1
+  - enemyType: {fileID: 6070512140053197372, guid: 69f1c2d657ed90844b0d5fe914ce8379,
+      type: 3}
+    maxCount: 1
+    points: 1
+  - enemyType: {fileID: 6070512140053197372, guid: 7bb6697901d730b448218389848ccf54,
+      type: 3}
+    maxCount: 1
+    points: 1
+  - enemyType: {fileID: 6070512140053197372, guid: 3088bebd1e8959246be12141a9605b48,
+      type: 3}
+    maxCount: 1
+    points: 1
+  - enemyType: {fileID: 6070512140053197372, guid: c423aafa98be5fa4295a232f628838a2,
+      type: 3}
+    maxCount: 1
     points: 1
   droppablePowerups:
   - {fileID: 8804232417819741601, guid: 7fae45129f32b5947b6ace8063142f87, type: 3}

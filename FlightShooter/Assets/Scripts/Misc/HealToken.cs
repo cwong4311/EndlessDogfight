@@ -53,7 +53,7 @@ public class HealToken : MonoBehaviour
     {
         if (_audioSource != null)
         {
-            _audioSource.PlayOneShot(HealSFX);
+            AudioSource.PlayClipAtPoint(HealSFX, _audioSource.transform.position);
         }
     }
 }

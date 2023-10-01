@@ -160,10 +160,10 @@ public class WeaponsMananger : MonoBehaviour, IWeaponManager
                     bullet.SetLayer(LayerMask.NameToLayer("PlayerBullet"));
 
                     bullet.Fire();
-                    PlayBulletSound(targetWeapon);
                 }
             }
 
+            PlayBulletSound(targetWeapon);
             OnOverheat();
         }
 
