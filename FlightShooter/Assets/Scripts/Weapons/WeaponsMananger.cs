@@ -50,6 +50,13 @@ public class WeaponsMananger : MonoBehaviour, IWeaponManager
     private float _originalPrimaryAmmoSize;
     private float _originalSecondaryAmmoSize;
 
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     public void OnEnable()
     {
         foreach (var _primaryWeapon in _availablePrimaryWeapons)
@@ -157,6 +164,7 @@ public class WeaponsMananger : MonoBehaviour, IWeaponManager
                     bullet.SetLayer(LayerMask.NameToLayer("PlayerBullet"));
 
                     bullet.Fire();
+                    PlayBulletSound(targetWeapon);
                 }
             }
 
@@ -166,6 +174,14 @@ public class WeaponsMananger : MonoBehaviour, IWeaponManager
         if (targetWeapon.CurrentAmmo <= 0)
         {
             OnReload();
+        }
+    }
+
+    private void PlayBulletSound(Weapon targetWeapon)
+    {
+        if (_audioSource != null && targetWeapon.BulletSound != null)
+        {
+            _audioSource.PlayOneShot(targetWeapon.BulletSound);
         }
     }
 
