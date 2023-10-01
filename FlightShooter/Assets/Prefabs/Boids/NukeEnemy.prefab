@@ -764,7 +764,7 @@ MonoBehaviour:
   RateOfFire: 0.03
   BulletPF: {fileID: 5116540436245979276, guid: a4ea598d7c881c641963f9722d52c6a5,
     type: 3}
-  BulletSound: {fileID: 0}
+  BulletSound: {fileID: 8300000, guid: f9eb44b85c96be5429737d4dcadbfa3b, type: 3}
   BulletSpeed: 60000
   BulletTravelDistance: 180000
   AudioSourceBullet: {fileID: -626008682856125795}
