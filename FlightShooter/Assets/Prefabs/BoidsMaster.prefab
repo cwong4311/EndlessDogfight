@@ -171,12 +171,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e73165ff9648b240a50be6550f280cc, type: 2}
   - {fileID: 11400000, guid: a44e94b928015b646ba380160a141465, type: 2}
   - {fileID: 11400000, guid: ec6389f10fa215b44be3dbca009237cd, type: 2}
+  - {fileID: 11400000, guid: 7b5bdb207f8a9ba45aba7fc03d89995c, type: 2}
   healPF: {fileID: 8804232417819741607, guid: 95bed42789c2c2e4bac7d5bf5009d2f3, type: 3}
   UIWaveCounter: {fileID: 0}
   UIWaveTimer: {fileID: 0}
   EnemiesLeftCounter: {fileID: 0}
-  PowerupDropChance: 5
-  HealDropChance: 10
+  PowerupDropChance: 35
+  HealDropChance: 20
 --- !u!114 &3604203367283930006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
   WaveSize: 25
   EnemyAreaOrigin: {x: 450, y: 120, z: 530}
   EnemyAreaRadius: 850
+  bossSpawnArea: {fileID: 3604203367040533441}
 --- !u!114 &500397617772274080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreCounter: {fileID: 0}
+  ScoreAddonCounter: {fileID: 0}
   EndScreenScoreCounter: {fileID: 0}
   ScoreCounterAnimator: {fileID: 0}
 --- !u!1001 &3604203366517255793

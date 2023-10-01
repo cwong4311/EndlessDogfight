@@ -704,6 +704,7 @@ MonoBehaviour:
   MovementSpeed: 40
   TurnPrecision: 0.3
   TurnDampingFactor: 0
+  disableMovement: 0
 --- !u!114 &-4323283357192828864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 300
   _currentHealth: 300
-  DeathEffectPF: {fileID: 0}
+  DeathEffectPF: {fileID: 4693679393813918749, guid: 548d876ce525a43478b4ebcbb827bc5c,
+    type: 3}
   ScoreOnDefeat: 25
 --- !u!136 &3290972937276478106
 CapsuleCollider:
