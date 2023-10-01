@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: DualMachinegun_1
   m_EditorClassIdentifier: 
   WeaponName: DualMachinegun
-  CurrentAmmo: 120
+  CurrentAmmo: 160
   MagSize: 160
   Damage: 25
   RateOfFire: 3
   BulletsPerShot: 1
   BulletPF: {fileID: 6557800050782924257, guid: 1b63f5ff0fe81ab4f93f659fa942f5c1,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
   ReloadTime: 3
   BulletSpeed: 7500
   BulletTravelDistance: 25000

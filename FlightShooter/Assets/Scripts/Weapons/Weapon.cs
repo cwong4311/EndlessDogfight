@@ -14,6 +14,7 @@ public class Weapon : ScriptableObject
     public float RateOfFire;
     public float BulletsPerShot; // used for burst weapons
     public GameObject BulletPF;
+    public AudioClip BulletSound;
 
     public float ReloadTime;
     public float BulletSpeed;

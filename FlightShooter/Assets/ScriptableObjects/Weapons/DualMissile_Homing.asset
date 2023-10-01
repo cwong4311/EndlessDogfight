@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: DualMissile_Homing
   m_EditorClassIdentifier: 
   WeaponName: DualMissile_Homing
-  CurrentAmmo: 20
+  CurrentAmmo: 22
   MagSize: 24
   Damage: 80
   RateOfFire: 0.2
   BulletsPerShot: 1
   BulletPF: {fileID: 5116540436245979276, guid: 8bfc47a362f54f847a1539e397fe29b9,
     type: 3}
+  BulletSound: {fileID: 8300000, guid: 281e15cc92254794eaf05caf4d044b76, type: 3}
   ReloadTime: 20
   BulletSpeed: 30000
   BulletTravelDistance: 150000
