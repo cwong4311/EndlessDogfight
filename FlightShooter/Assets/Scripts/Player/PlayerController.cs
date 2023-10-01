@@ -31,12 +31,16 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Vector3? RestrictVelocity = null;
 
+    private PlayerHealth _playerHealth;
+
     private void Awake()
     {
         if (TryGetComponent<Rigidbody>(out _rb) == false)
         {
             throw new MissingComponentException("Player Plane is missing a RigidBody component");
         }
+
+        TryGetComponent<PlayerHealth>(out _playerHealth);
 
         _rb.drag = Mathf.Epsilon;
         _currentVerticalTurnSpeed = TurnSpeed;
@@ -148,6 +152,12 @@ public class PlayerController : MonoBehaviour
         {
             _currentVerticalTurnSpeed = CollisionAvoidanceSpeed * 10;
             _currentHorizontalTurnSpeed = CollisionAvoidanceSpeed;
+
+            transform.position += Vector3.up * 50f;
+            if (_playerHealth != null)
+            {
+                _playerHealth.TakeDamage(30f);
+            }
         }
     }
 
