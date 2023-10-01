@@ -40,7 +40,7 @@ MonoBehaviour:
   - enemyType: {fileID: 6070512140053197372, guid: c423aafa98be5fa4295a232f628838a2,
       type: 3}
     maxCount: 999
-    points: 1
+    points: 2
   droppablePowerups:
   - {fileID: 8804232417819741601, guid: 7fae45129f32b5947b6ace8063142f87, type: 3}
   - {fileID: 8804232417819741601, guid: 452bfed73d8be604e97201a6513e60ff, type: 3}
@@ -51,4 +51,4 @@ MonoBehaviour:
   - {fileID: 8804232417819741601, guid: 5002340e90f6a9c4895a56e81eac8b8e, type: 3}
   - {fileID: 8804232417819741601, guid: 74b0d87cdcfdc9e4e8a43e643a6f6d6a, type: 3}
   totalWavePoints: 280
-  WaveDuration: 440
+  WaveDuration: 360
