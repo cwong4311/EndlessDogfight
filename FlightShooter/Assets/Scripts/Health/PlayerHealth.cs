@@ -31,6 +31,11 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private float _damageIntensity;
     private float _tempInvulnStart;
 
+    public AudioClip HurtSFX;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
     public void OnEnable()
     {
         CurrentHealth = MaxHealth;
@@ -77,6 +82,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         ToggleTemporaryInvulnAfterDamage(true, damage);
         UpdateHealthBar();
+
+        if (_audioSource != null)
+        {
+            _audioSource.clip = HurtSFX;
+            _audioSource.Play();
+        }
     }
 
     public void ToggleInvuln(bool active)

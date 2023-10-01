@@ -32,6 +32,12 @@ public class ScoreController : MonoBehaviour
         _isGameRunning = true;
     }
 
+    private void OnDestroy()
+    {
+        onEnemyDeathScore -= ProcessScore;
+        onPlayerDeath -= ProcessGameEnd;
+    }
+
     private void Update()
     {
         if (_isGameRunning == false)

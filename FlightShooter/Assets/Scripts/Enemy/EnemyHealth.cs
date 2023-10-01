@@ -29,6 +29,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private bool _isInuvlnerable;
     private bool isDead;
 
+    public AudioClip HurtSFX;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
     public void OnEnable()
     {
         CurrentHealth = MaxHealth;
@@ -68,6 +73,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (CurrentHealth <= 0 && !isDead)
         {
             Die();
+        }
+
+        if (_audioSource != null)
+        {
+            _audioSource.PlayOneShot(HurtSFX);
         }
     }
 

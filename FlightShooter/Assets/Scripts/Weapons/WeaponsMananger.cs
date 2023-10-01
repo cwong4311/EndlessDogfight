@@ -49,13 +49,9 @@ public class WeaponsMananger : MonoBehaviour, IWeaponManager
     public RectTransform SecondaryAmmoBar;
     private float _originalPrimaryAmmoSize;
     private float _originalSecondaryAmmoSize;
-
+    
+    [SerializeField]
     private AudioSource _audioSource;
-
-    private void Awake()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
 
     public void OnEnable()
     {

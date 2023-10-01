@@ -11,6 +11,11 @@ public class PowerupToken : MonoBehaviour
 
     private float _timeSinceAwake;
 
+    public AudioClip PowerupSFX;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
     public void OnEnable()
     {
         _timeSinceAwake = Time.time;
@@ -40,6 +45,7 @@ public class PowerupToken : MonoBehaviour
                 playerWeaponManager.ChangeSecondary(PowerupName);
             }
 
+            PlayCollectionSound();
             Destroy();
         }
     }
@@ -49,6 +55,14 @@ public class PowerupToken : MonoBehaviour
         if (ObjectPoolManager.ReturnToPool(gameObject) == false)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void PlayCollectionSound()
+    {
+        if (_audioSource != null)
+        {
+            AudioSource.PlayClipAtPoint(PowerupSFX, _audioSource.transform.position);
         }
     }
 }

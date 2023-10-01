@@ -35,7 +35,7 @@ public class WaveController : MonoBehaviour
 
     private void Start()
     {
-        _waveLevel = 0;
+        _waveLevel = 10;
         _lastMobWave = WaveStats[WaveStats.Length - 2];
         _lastBossWave = WaveStats[WaveStats.Length - 1];
 
