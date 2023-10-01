@@ -5590,7 +5590,6 @@ GameObject:
   m_Component:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
-  - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
   - component: {fileID: 330585549}
@@ -5601,14 +5600,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &330585544
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -24072,7 +24063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582908053}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -105, y: 152, z: 320.4913}
+  m_LocalPosition: {x: -105, y: 148, z: 320.4913}
   m_LocalScale: {x: 46.772, y: 2036.8265, z: 2026.426}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34597,6 +34588,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 167596541494424990, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491084180651233096, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 500397617772274080, guid: 589269310c9319b4ba0719660a228fa3,
         type: 3}
       propertyPath: ScoreCounter
@@ -34617,6 +34618,16 @@ PrefabInstance:
       propertyPath: EndScreenScoreCounter
       value: 
       objectReference: {fileID: 599915343}
+    - target: {fileID: 540887453833899068, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777512225542917821, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3604203367283930004, guid: 589269310c9319b4ba0719660a228fa3,
         type: 3}
       propertyPath: m_Name
@@ -34677,6 +34688,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4627150552469513293, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4810098415165660731, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
         type: 3}
       propertyPath: UIWaveTimer
@@ -34689,18 +34710,28 @@ PrefabInstance:
       objectReference: {fileID: 959548112}
     - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
         type: 3}
-      propertyPath: HealDropChance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
-        type: 3}
-      propertyPath: PowerupDropChance
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237734334444967403, guid: 589269310c9319b4ba0719660a228fa3,
-        type: 3}
       propertyPath: EnemiesLeftCounter
       value: 
       objectReference: {fileID: 1611758631}
+    - target: {fileID: 7121503098165076777, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270777302252368393, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469791502641577276, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569592283645125744, guid: 589269310c9319b4ba0719660a228fa3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 589269310c9319b4ba0719660a228fa3, type: 3}

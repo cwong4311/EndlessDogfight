@@ -23,6 +23,9 @@ public class BoidsAgent : MonoBehaviour
     public float MovementSpeed = 10f;
     public float TurnPrecision = 5f;
     public float TurnDampingFactor = 5f;
+
+    public bool disableMovement = false;
+
     private Rigidbody _rb;
 
     private void Start()
@@ -41,6 +44,8 @@ public class BoidsAgent : MonoBehaviour
 
     public void Move(Vector3 desiredDirection)
     {
+        if (disableMovement) return;
+
         // RB Physics method
         if (_rb != null)
         {

@@ -19,10 +19,14 @@ public class EnemyBoidsController : MonoBehaviour
     public Vector3 EnemyAreaOrigin;
     public float EnemyAreaRadius;
 
+    [SerializeField]
+    private Transform bossSpawnArea;
+
     private const float enemyDensity = 3f;
     private int assignedGroup;
 
     private Coroutine _enemySpawnCoroutine;
+    private int bossWaves = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -81,15 +85,31 @@ public class EnemyBoidsController : MonoBehaviour
     {
         yield return new WaitUntil(() => PlayerTarget != null);
 
+        bool hasSpawnedBoss = false;
         for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
-            var randomSpawnPoint = Random.Range(0, spawnAreas.Length);
-            assignedGroup = randomSpawnPoint;
+            Vector3 spawnLocation;
+            if (enemiesToSpawn[i].gameObject.TryGetComponent<BossController>(out var boss))
+            {
+                spawnLocation = bossSpawnArea.position + (Vector3.up * 100f);
+                assignedGroup = 99;
+
+                boss.SetTarget(PlayerTarget);
+                boss.Buff(bossWaves * 0.5f);
+
+                hasSpawnedBoss = true;
+            }
+            else
+            {
+                var randomSpawnPoint = Random.Range(0, spawnAreas.Length);
+                spawnLocation = spawnAreas[randomSpawnPoint].position + (Vector3.up * 18f);
+                assignedGroup = randomSpawnPoint;
+            }
 
             var enemy = ObjectPoolManager.Spawn(
                 enemiesToSpawn[i].gameObject,
-                spawnAreas[randomSpawnPoint].position + (Vector3.up * 18f),
-                Quaternion.Euler(new Vector3(Random.Range(-120, 120), Random.Range(-120, 120), Random.Range(-120, 120)))
+                spawnLocation,
+                Quaternion.Euler(new Vector3(Random.Range(-120, 120), Random.Range(0, 60), Random.Range(-120, 120)))
             );
             enemy.transform.parent = transform;
 
@@ -113,6 +133,9 @@ public class EnemyBoidsController : MonoBehaviour
 
             yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
         }
+
+        if (hasSpawnedBoss)
+            bossWaves++;
 
         _enemySpawnCoroutine = null;
     }

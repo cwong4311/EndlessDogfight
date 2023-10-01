@@ -20,6 +20,7 @@ public class EnemyWeapon : MonoBehaviour, IWeaponManager
     private float _isShootStartTime;
 
     public float DamageMod = 1f;
+    public bool IsInCooldown => _isShootCooldown;
 
     public void Update()
     {
