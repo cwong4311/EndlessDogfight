@@ -32,7 +32,7 @@ MonoBehaviour:
   - enemyType: {fileID: 6070512140053197372, guid: c423aafa98be5fa4295a232f628838a2,
       type: 3}
     maxCount: 99
-    points: 1
+    points: 2
   droppablePowerups:
   - {fileID: 8804232417819741601, guid: 7fae45129f32b5947b6ace8063142f87, type: 3}
   - {fileID: 8804232417819741601, guid: 452bfed73d8be604e97201a6513e60ff, type: 3}

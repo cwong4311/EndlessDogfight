@@ -15,11 +15,11 @@ MonoBehaviour:
   usableEnemies:
   - enemyType: {fileID: 6070512140053197372, guid: 7bb6697901d730b448218389848ccf54,
       type: 3}
-    maxCount: 3
+    maxCount: 5
     points: 3
   - enemyType: {fileID: 6070512140053197372, guid: 3088bebd1e8959246be12141a9605b48,
       type: 3}
-    maxCount: 2
+    maxCount: 4
     points: 3
   - enemyType: {fileID: 6070512140053197372, guid: c423aafa98be5fa4295a232f628838a2,
       type: 3}
