@@ -43,6 +43,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
+        isDead = true;
+        ScoreController.onEnemyDeathScore.Invoke(ScoreOnDefeat);
+        WaveController.onEnemyDeathPowerup.Invoke(transform.position);
+
         if (DeathEffectPF)
             ObjectPoolManager.Spawn(DeathEffectPF, transform.position, transform.rotation);
        
@@ -50,10 +54,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
             ObjectPoolManager.ReturnToPool(gameObject);
         else
             Destroy(gameObject);
-
-        isDead = true;
-        ScoreController.onEnemyDeathScore.Invoke(ScoreOnDefeat);
-        WaveController.onEnemyDeathPowerup.Invoke(transform.position);
     }
 
     public void Heal(float amount)
