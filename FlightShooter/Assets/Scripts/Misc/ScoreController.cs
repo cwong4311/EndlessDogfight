@@ -21,6 +21,11 @@ public class ScoreController : MonoBehaviour
 
     private bool _isGameRunning;
 
+    public AudioClip EnemyScoreSFX;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
     private void Start()
     {
         _currentScore = 0;
@@ -30,6 +35,12 @@ public class ScoreController : MonoBehaviour
         onPlayerDeath += ProcessGameEnd;
 
         _isGameRunning = true;
+    }
+
+    private void OnDestroy()
+    {
+        onEnemyDeathScore -= ProcessScore;
+        onPlayerDeath -= ProcessGameEnd;
     }
 
     private void Update()
@@ -42,7 +53,7 @@ public class ScoreController : MonoBehaviour
         if (_scoresToBeAdded.Count > 0 && ScoreCounterAnimator.GetCurrentAnimatorStateInfo(0).IsTag("idle"))
         {
             var score = _scoresToBeAdded.Dequeue();
-            ScoreAddonCounter.text = score.ToString();
+            ScoreAddonCounter.text = "+" + score.ToString();
 
             AddToScore(score);
             ScoreCounterAnimator.SetTrigger("AddScore");
@@ -58,6 +69,8 @@ public class ScoreController : MonoBehaviour
     private void ProcessScore(int scoreIncrease)
     {
         _scoresToBeAdded.Enqueue(scoreIncrease);
+
+        _audioSource.PlayOneShot(EnemyScoreSFX);
     }
 
     private void ProcessGameEnd()

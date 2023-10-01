@@ -33,9 +33,15 @@ public class WaveController : MonoBehaviour
     private WaveStats _lastMobWave;
     private WaveStats _lastBossWave;
 
+    private int _lastTime;
+    
+    public AudioClip TickDownSFX;
+    [SerializeField]
+    private AudioSource _audioSource;
+
     private void Start()
     {
-        _waveLevel = 0;
+        _waveLevel = 11;
         _lastMobWave = WaveStats[WaveStats.Length - 2];
         _lastBossWave = WaveStats[WaveStats.Length - 1];
 
@@ -44,7 +50,19 @@ public class WaveController : MonoBehaviour
 
     private void Update()
     {
-        UIWaveTimer.text = ((int)(_currentWaveDuration - (Time.time - _waveTimer))).ToString();
+        var timeLeft = (int)(_currentWaveDuration - (Time.time - _waveTimer));
+        if (timeLeft < _lastTime)
+        {
+            _lastTime = timeLeft;
+            if (_lastTime <= 10)
+            {
+                UIWaveTimer.color = Color.red;
+                _audioSource.PlayOneShot(TickDownSFX);
+            }
+        }
+
+        UIWaveTimer.text = timeLeft.ToString();
+        
 
         if (Time.time - _waveTimer > _currentWaveDuration)
         {
@@ -75,6 +93,8 @@ public class WaveController : MonoBehaviour
     {
         _waveTimer = Time.time;
         _waveLevel++;
+
+        UIWaveTimer.color = Color.white;
         UIWaveCounter.text = _waveLevel.ToString();
 
         if (_waveLevel <= WaveStats.Length)
@@ -90,6 +110,7 @@ public class WaveController : MonoBehaviour
         var waveModifier = (extraWaveMultiplier > 1) ? extraWaveMultiplier : 1;
 
         _currentWaveDuration = _currentWave.WaveDuration * waveModifier;
+        _lastTime = (int)_currentWaveDuration;
 
         List<BoidsAgent> enemiesThisWave = new List<BoidsAgent>();
         var pointsToUse = (int)(_currentWave.totalWavePoints);

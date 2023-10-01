@@ -9,6 +9,11 @@ public class HealToken : MonoBehaviour
 
     private float _timeSinceAwake;
 
+    public AudioClip HealSFX;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
     public void OnEnable()
     {
         _timeSinceAwake = Time.time;
@@ -30,6 +35,8 @@ public class HealToken : MonoBehaviour
         if (target.TryGetComponent<PlayerHealth>(out var playerHealth))
         {
             playerHealth.Heal(HealAmount);
+
+            PlayCollectionSound();
             Destroy();
         }
     }
@@ -39,6 +46,14 @@ public class HealToken : MonoBehaviour
         if (ObjectPoolManager.ReturnToPool(gameObject) == false)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void PlayCollectionSound()
+    {
+        if (_audioSource != null)
+        {
+            _audioSource.PlayOneShot(HealSFX);
         }
     }
 }

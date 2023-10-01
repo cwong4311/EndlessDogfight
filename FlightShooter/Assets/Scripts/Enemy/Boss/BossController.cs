@@ -42,6 +42,17 @@ public class BossController : MonoBehaviour
         FiringState = new FiringBossState(this, BossStateMachine, FiringRange);
 
         BossStateMachine.Initialise(IdleState);
+
+        BGMController.OnBossSpawn.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        try
+        {
+            BGMController.OnBossDefeat.Invoke();
+        }
+        catch { } // Do nothing, this can fail
     }
 
     public void SetTarget(Transform player)

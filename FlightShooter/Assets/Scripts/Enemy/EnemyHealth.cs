@@ -29,6 +29,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private bool _isInuvlnerable;
     private bool isDead;
 
+    public AudioClip HurtSFX;
+
+    [SerializeField]
+    private AudioSource _audioSource;
+
     public void OnEnable()
     {
         CurrentHealth = MaxHealth;
@@ -38,6 +43,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
 
     public void Die()
     {
+        isDead = true;
+        ScoreController.onEnemyDeathScore.Invoke(ScoreOnDefeat);
+        WaveController.onEnemyDeathPowerup.Invoke(transform.position);
+
         if (DeathEffectPF)
             ObjectPoolManager.Spawn(DeathEffectPF, transform.position, transform.rotation);
        
@@ -45,10 +54,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
             ObjectPoolManager.ReturnToPool(gameObject);
         else
             Destroy(gameObject);
-
-        isDead = true;
-        ScoreController.onEnemyDeathScore.Invoke(ScoreOnDefeat);
-        WaveController.onEnemyDeathPowerup.Invoke(transform.position);
     }
 
     public void Heal(float amount)
@@ -68,6 +73,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (CurrentHealth <= 0 && !isDead)
         {
             Die();
+        }
+
+        if (_audioSource != null)
+        {
+            _audioSource.PlayOneShot(HurtSFX);
         }
     }
 
