@@ -768,7 +768,7 @@ MonoBehaviour:
   BulletSound: {fileID: 0}
   BulletSpeed: 2000
   BulletTravelDistance: 20000
-  AudioSourceBullet: {fileID: 2763962668872837779}
+  AudioSourceBullet: {fileID: -4862283409508183570}
   DamageMod: 1
 --- !u!136 &3290972937276478106
 CapsuleCollider:
