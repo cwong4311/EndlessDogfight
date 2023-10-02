@@ -10511,6 +10511,21 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 19.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.95985556
+      objectReference: {fileID: 0}
+    - target: {fileID: 5221731075159119255, guid: f921d021069e23249a1c533bd3545455,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f921d021069e23249a1c533bd3545455, type: 3}
 --- !u!1 &657769485 stripped
@@ -35469,6 +35484,7 @@ MonoBehaviour:
   BattleSceneName: MainMenu
   LoadingScreen: {fileID: 1340627303}
   LoadingBar: {fileID: 1340627304}
+  CreditsScreen: {fileID: 0}
 --- !u!1001 &1385885448582122252
 PrefabInstance:
   m_ObjectHideFlags: 0
